@@ -1,0 +1,176 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Four grouped funding purposes across single-state listed funding; column width indicates total share.",
+  "width": 620,
+  "height": 335,
+  "background": "transparent",
+  "data": {
+    "url": "data/state_stream_grouped_mosaic.csv"
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "gridColor": "#e2e8e4",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#f5f7f3",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x0",
+          "type": "quantitative",
+          "title": "Share of eligible listed funding",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          },
+          "axis": {
+            "format": ".0%"
+          }
+        },
+        "x2": {
+          "field": "x1"
+        },
+        "y": {
+          "field": "y0",
+          "type": "quantitative",
+          "title": "Stream share within state",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          },
+          "axis": {
+            "format": ".0%"
+          }
+        },
+        "y2": {
+          "field": "y1"
+        },
+        "color": {
+          "field": "stream_group",
+          "type": "nominal",
+          "title": "Grouped stream",
+          "scale": {
+            "domain": [
+              "Priority places",
+              "Priority species",
+              "Threat response",
+              "Monitoring"
+            ],
+            "range": [
+              "#245d88",
+              "#5d7ea7",
+              "#b77a48",
+              "#7662a2"
+            ]
+          },
+          "legend": {
+            "orient": "right",
+            "direction": "vertical",
+            "title": "Purpose",
+            "symbolSize": 80,
+            "labelLimit": 135
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state_code",
+            "title": "State"
+          },
+          {
+            "field": "stream_group",
+            "title": "Grouped stream"
+          },
+          {
+            "field": "funding_aud",
+            "type": "quantitative",
+            "title": "Listed funding (AUD)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.state_code == 'QLD' && datum.stream_group == 'Threat response'"
+        },
+        {
+          "calculate": "(datum.x0+datum.x1)/2",
+          "as": "xcenter"
+        },
+        {
+          "calculate": "(datum.y0+datum.y1)/2",
+          "as": "ycenter"
+        },
+        {
+          "calculate": "'QLD AUD 26.59m'",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#101d1b"
+      },
+      "encoding": {
+        "x": {
+          "field": "xcenter",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          }
+        },
+        "y": {
+          "field": "ycenter",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          }
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

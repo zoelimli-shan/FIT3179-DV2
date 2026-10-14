@@ -1,0 +1,108 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Changes in priority species between the 2015–2020 and 2022–2032 lists.",
+  "width": 560,
+  "height": 300,
+  "background": "transparent",
+  "data": {
+    "url": "data/priority_changes_by_group.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "species_count": "number"
+      }
+    }
+  },
+  "mark": {
+    "type": "bar"
+  },
+  "encoding": {
+    "y": {
+      "field": "taxon_group",
+      "type": "nominal",
+      "sort": [
+        "Birds",
+        "Mammals",
+        "Plants",
+        "Fish",
+        "Amphibians",
+        "Reptiles",
+        "Invertebrates"
+      ],
+      "title": "Species group"
+    },
+    "x": {
+      "aggregate": "sum",
+      "field": "species_count",
+      "type": "quantitative",
+      "title": "Species appearing on either priority list"
+    },
+    "color": {
+      "field": "priority_change",
+      "type": "nominal",
+      "title": "Change between lists",
+      "scale": {
+        "domain": [
+          "Retained",
+          "Added to current list",
+          "Not on current list"
+        ],
+        "range": [
+          "#267f68",
+          "#80b99e",
+          "#c88b69"
+        ]
+      }
+    },
+    "order": {
+      "field": "priority_change",
+      "sort": "ascending"
+    },
+    "tooltip": [
+      {
+        "field": "taxon_group",
+        "type": "nominal",
+        "title": "Group"
+      },
+      {
+        "field": "priority_change",
+        "type": "nominal",
+        "title": "List status"
+      },
+      {
+        "field": "species_count",
+        "type": "quantitative",
+        "title": "Species",
+        "format": ".0f"
+      }
+    ]
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "gridColor": "#e2e8e4",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  }
+}

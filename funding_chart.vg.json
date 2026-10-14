@@ -1,0 +1,128 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Listed funding across seven Saving Native Species Phase 1 streams.",
+  "width": 600,
+  "height": 300,
+  "background": "transparent",
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "titlePadding": 12,
+      "gridColor": "#e2e8e4",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  },
+  "data": {
+    "url": "data/funding_by_stream.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#245d88"
+      },
+      "encoding": {
+        "y": {
+          "field": "funding_stream",
+          "type": "nominal",
+          "sort": "-x",
+          "title": "Funding stream",
+          "axis": {
+            "labelExpr": "replace(datum.label, /_/g, ' ')",
+            "labelLimit": 220
+          }
+        },
+        "x": {
+          "field": "funding_aud",
+          "type": "quantitative",
+          "title": "Listed funding (AUD)",
+          "axis": {
+            "format": "~s"
+          },
+          "scale": {
+            "zero": true
+          }
+        },
+        "tooltip": [
+          {
+            "field": "funding_stream",
+            "type": "nominal",
+            "title": "Stream"
+          },
+          {
+            "field": "funding_aud",
+            "type": "quantitative",
+            "title": "Funding (AUD)",
+            "format": ",.2f"
+          },
+          {
+            "field": "project_count",
+            "type": "quantitative",
+            "title": "Projects"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.funding_stream == 'priority_places'"
+        },
+        {
+          "calculate": "'AUD 56.08m'",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#ffffff"
+      },
+      "encoding": {
+        "x": {
+          "field": "funding_aud",
+          "type": "quantitative",
+          "scale": {
+            "zero": true
+          }
+        },
+        "y": {
+          "field": "funding_stream",
+          "type": "nominal",
+          "sort": "-x"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

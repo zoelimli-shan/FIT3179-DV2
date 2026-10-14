@@ -1,0 +1,139 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Share of state-listed threatened species that are plants, shown as a schematic state tile map.",
+  "width": 560,
+  "height": 340,
+  "background": "transparent",
+  "data": {
+    "url": "data/state_plant_share_tiles.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#82938a",
+        "strokeWidth": 1,
+        "cornerRadius": 8
+      },
+      "encoding": {
+        "color": {
+          "field": "plant_share",
+          "type": "quantitative",
+          "title": "Plant share",
+          "scale": {
+            "domain": [
+              0,
+              0.75
+            ],
+            "range": [
+              "#f2f6f1",
+              "#9fc5ac"
+            ]
+          },
+          "legend": {
+            "format": ".0%",
+            "orient": "right",
+            "direction": "vertical",
+            "gradientLength": 140,
+            "gradientThickness": 10,
+            "offset": 12
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state_name",
+            "title": "State or territory"
+          },
+          {
+            "field": "threatened_plants",
+            "type": "quantitative",
+            "title": "Listed plants"
+          },
+          {
+            "field": "threatened_total",
+            "type": "quantitative",
+            "title": "All listed species"
+          },
+          {
+            "field": "plant_share",
+            "type": "quantitative",
+            "title": "Plant share",
+            "format": ".1%"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 17,
+        "fontWeight": "bold",
+        "dy": -10,
+        "color": "#173f37"
+      },
+      "encoding": {
+        "text": {
+          "field": "state_code",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "dy": 15,
+        "color": "#173f37"
+      },
+      "encoding": {
+        "text": {
+          "field": "plant_share",
+          "type": "quantitative",
+          "format": ".0%"
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "col",
+      "type": "ordinal",
+      "axis": null,
+      "sort": "ascending"
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "axis": null,
+      "sort": "ascending"
+    }
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "gridColor": "#e2e8e4",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  }
+}

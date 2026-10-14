@@ -1,0 +1,9 @@
+state_code,state_name,col,row,threatened_total,threatened_plants,plant_share
+ACT,Australian Capital Territory,3,1,70,18,0.2571
+NSW,New South Wales,2,1,726,469,0.646
+NT,Northern Territory,1,0,142,39,0.2746
+QLD,Queensland,2,0,579,338,0.5838
+SA,South Australia,1,1,297,135,0.4545
+TAS,Tasmania,2,3,217,105,0.4839
+VIC,Victoria,2,2,343,175,0.5102
+WA,Western Australia,0,1,583,413,0.7084

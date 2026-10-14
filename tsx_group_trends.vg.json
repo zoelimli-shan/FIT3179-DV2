@@ -1,0 +1,192 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Threatened Species Index by monitored animal group, 2000 to 2022.",
+  "background": "transparent",
+  "data": {
+    "url": "data/tsx_trend_five_groups.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.group != 'All groups'"
+    }
+  ],
+  "facet": {
+    "row": {
+      "field": "group",
+      "type": "nominal",
+      "sort": [
+        "Birds",
+        "Mammals",
+        "Amphibians",
+        "Reptiles",
+        "Plants"
+      ],
+      "title": null,
+      "header": {
+        "labelFontSize": 14,
+        "labelColor": "#17362f",
+        "labelAngle": 0,
+        "labelPadding": 16,
+        "labelLimit": 140
+      }
+    }
+  },
+  "spec": {
+    "width": 560,
+    "height": 86,
+    "layer": [
+      {
+        "mark": {
+          "type": "line",
+          "strokeWidth": 2.5
+        },
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Year",
+            "scale": {
+              "domain": [
+                2000,
+                2022
+              ]
+            },
+            "axis": {
+              "format": "d",
+              "tickCount": 6
+            }
+          },
+          "y": {
+            "field": "value",
+            "type": "quantitative",
+            "title": null,
+            "scale": {
+              "domain": [
+                0,
+                1
+              ]
+            }
+          },
+          "tooltip": [
+            {
+              "field": "group",
+              "title": "Group"
+            },
+            {
+              "field": "year",
+              "title": "Year",
+              "format": "d"
+            },
+            {
+              "field": "value",
+              "type": "quantitative",
+              "title": "Population index",
+              "format": ".3f"
+            }
+          ],
+          "color": {
+            "field": "group",
+            "type": "nominal",
+            "legend": null,
+            "scale": {
+              "domain": [
+                "Birds",
+                "Mammals",
+                "Amphibians",
+                "Reptiles",
+                "Plants"
+              ],
+              "range": [
+                "#2c6f74",
+                "#365874",
+                "#925623",
+                "#8b4f6e",
+                "#4e7135"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.group == 'Reptiles' && datum.year == 2022"
+          },
+          {
+            "calculate": "'Reptiles: 0.12'",
+            "as": "callout"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "dx": -8,
+          "dy": -12,
+          "fontSize": 12,
+          "fontWeight": "bold",
+          "color": "#8b4f6e"
+        },
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                2000,
+                2022
+              ]
+            }
+          },
+          "y": {
+            "field": "value",
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                0,
+                1
+              ]
+            }
+          },
+          "text": {
+            "field": "callout",
+            "type": "nominal"
+          }
+        }
+      }
+    ]
+  },
+  "resolve": {
+    "scale": {
+      "y": "shared"
+    }
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "gridColor": "#e2e8e4",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  },
+  "spacing": 12
+}

@@ -1,0 +1,144 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Transcription of 13 labelled estimates in the 2022 recovery action plan Figure 2.",
+  "width": 620,
+  "height": 300,
+  "background": "transparent",
+  "layer": [
+    {
+      "data": {
+        "url": "data/wombat_population_series.csv"
+      },
+      "mark": {
+        "type": "line",
+        "point": {
+          "size": 58
+        },
+        "color": "#176b50",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "title": "Year",
+          "scale": {
+            "domain": [
+              1982,
+              2022
+            ]
+          },
+          "axis": {
+            "format": "d"
+          }
+        },
+        "y": {
+          "field": "population",
+          "type": "quantitative",
+          "title": "Estimated wombats",
+          "scale": {
+            "domain": [
+              0,
+              350
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Approx. year",
+            "format": "d"
+          },
+          {
+            "field": "population",
+            "type": "quantitative",
+            "title": "Reported estimate"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2001
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#c88b69",
+        "strokeDash": [
+          5,
+          4
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 1993,
+            "population": 325,
+            "note": "2000–01: ~10% lost to dingoes"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "color": "#8d5136",
+        "fontSize": 12
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "population",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "gridColor": "#e2e8e4",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  }
+}

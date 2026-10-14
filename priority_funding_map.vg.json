@@ -1,0 +1,145 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Listed priority-species project funding by state or territory.",
+  "width": 620,
+  "height": 440,
+  "background": "transparent",
+  "data": {
+    "url": "data/australia_eight_states_territories_vega.geojson",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
+  "transform": [
+    {
+      "lookup": "properties.state_code",
+      "from": {
+        "data": {
+          "url": "data/priority_species_funding_by_state.csv"
+        },
+        "key": "state_code",
+        "fields": [
+          "funding_aud",
+          "project_count"
+        ]
+      }
+    },
+    {
+      "calculate": "toNumber(datum.funding_aud)",
+      "as": "funding_numeric"
+    },
+    {
+      "calculate": "toNumber(datum.project_count)",
+      "as": "project_count_numeric"
+    }
+  ],
+  "projection": {
+    "type": "equalEarth"
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "gridColor": "#e2e8e4",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#8e9e96",
+        "strokeWidth": 0.7
+      },
+      "encoding": {
+        "color": {
+          "field": "funding_numeric",
+          "type": "quantitative",
+          "title": "Listed funding (AUD)",
+          "scale": {
+            "scheme": "blues",
+            "domainMin": 0
+          },
+          "legend": {
+            "format": "~s",
+            "orient": "bottom-left",
+            "direction": "horizontal",
+            "gradientLength": 100,
+            "title": "Listed AUD"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.state_name",
+            "type": "nominal",
+            "title": "State or territory"
+          },
+          {
+            "field": "funding_numeric",
+            "type": "quantitative",
+            "title": "Listed funding (AUD)",
+            "format": ",.0f"
+          },
+          {
+            "field": "project_count_numeric",
+            "type": "quantitative",
+            "title": "Projects",
+            "format": ".0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "longitude": 144,
+            "latitude": -23,
+            "label": "QLD AUD 5.04m"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#ffffff"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

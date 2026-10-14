@@ -1,0 +1,159 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "NSW",
+        "state_name": "New South Wales",
+        "funding_aud": 11422429.0,
+        "project_count": 23
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            149.1,
+            -35.3
+          ],
+          [
+            146.5,
+            -32.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "NT",
+        "state_name": "Northern Territory",
+        "funding_aud": 21745489.0,
+        "project_count": 14
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            149.1,
+            -35.3
+          ],
+          [
+            133.4,
+            -19.5
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "QLD",
+        "state_name": "Queensland",
+        "funding_aud": 44331753.0,
+        "project_count": 28
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            149.1,
+            -35.3
+          ],
+          [
+            145.0,
+            -23.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "SA",
+        "state_name": "South Australia",
+        "funding_aud": 5469344.0,
+        "project_count": 8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            149.1,
+            -35.3
+          ],
+          [
+            135.5,
+            -30.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "TAS",
+        "state_name": "Tasmania",
+        "funding_aud": 12158651.5,
+        "project_count": 17
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            149.1,
+            -35.3
+          ],
+          [
+            146.8,
+            -42.1
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "VIC",
+        "state_name": "Victoria",
+        "funding_aud": 14394221.0,
+        "project_count": 27
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            149.1,
+            -35.3
+          ],
+          [
+            144.1,
+            -37.3
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "WA",
+        "state_name": "Western Australia",
+        "funding_aud": 16048164.0,
+        "project_count": 20
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            149.1,
+            -35.3
+          ],
+          [
+            121.5,
+            -26.5
+          ]
+        ]
+      }
+    }
+  ]
+}

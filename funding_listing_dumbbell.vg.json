@@ -1,0 +1,451 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Paired shares of EPBC state listings and mapped priority-species listed funding; the connecting rule shows a gap, not a trend.",
+  "width": 580,
+  "height": 310,
+  "background": "transparent",
+  "data": {
+    "url": "data/funding_listing_dumbbell.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2,
+        "color": "#a2aaa5"
+      },
+      "encoding": {
+        "x": {
+          "field": "lower",
+          "type": "quantitative",
+          "title": "Share of eight-state total",
+          "scale": {
+            "domain": [
+              0,
+              0.3
+            ]
+          },
+          "axis": {
+            "format": ".0%",
+            "grid": true,
+            "gridColor": "#e3e9e5",
+            "tickCount": 7
+          }
+        },
+        "x2": {
+          "field": "upper"
+        },
+        "y": {
+          "field": "state_code",
+          "type": "nominal",
+          "sort": [
+            "NSW",
+            "TAS",
+            "VIC",
+            "SA",
+            "NT",
+            "WA",
+            "ACT",
+            "QLD"
+          ],
+          "title": null,
+          "axis": {
+            "grid": false,
+            "labelFontSize": 13
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state_code",
+            "title": "State or territory"
+          },
+          {
+            "field": "listing_share",
+            "type": "quantitative",
+            "title": "Share of listings",
+            "format": ".1%"
+          },
+          {
+            "field": "funding_share",
+            "type": "quantitative",
+            "title": "Share of mapped funding",
+            "format": ".1%"
+          },
+          {
+            "field": "gap_pp",
+            "type": "quantitative",
+            "title": "Funding minus listings (percentage points)",
+            "format": "+.1f"
+          },
+          {
+            "field": "listed_species",
+            "type": "quantitative",
+            "title": "State listings"
+          },
+          {
+            "field": "funding_aud",
+            "type": "quantitative",
+            "title": "Mapped funding (AUD)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 110,
+        "shape": "circle",
+        "color": "#66509a"
+      },
+      "encoding": {
+        "x": {
+          "field": "listing_share",
+          "type": "quantitative",
+          "title": "Share of eight-state total",
+          "scale": {
+            "domain": [
+              0,
+              0.3
+            ]
+          },
+          "axis": {
+            "format": ".0%",
+            "grid": true,
+            "gridColor": "#e3e9e5",
+            "tickCount": 7
+          }
+        },
+        "y": {
+          "field": "state_code",
+          "type": "nominal",
+          "sort": [
+            "NSW",
+            "TAS",
+            "VIC",
+            "SA",
+            "NT",
+            "WA",
+            "ACT",
+            "QLD"
+          ],
+          "title": null,
+          "axis": {
+            "grid": false,
+            "labelFontSize": 13
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state_code",
+            "title": "State or territory"
+          },
+          {
+            "field": "listing_share",
+            "type": "quantitative",
+            "title": "Share of listings",
+            "format": ".1%"
+          },
+          {
+            "field": "funding_share",
+            "type": "quantitative",
+            "title": "Share of mapped funding",
+            "format": ".1%"
+          },
+          {
+            "field": "gap_pp",
+            "type": "quantitative",
+            "title": "Funding minus listings (percentage points)",
+            "format": "+.1f"
+          },
+          {
+            "field": "listed_species",
+            "type": "quantitative",
+            "title": "State listings"
+          },
+          {
+            "field": "funding_aud",
+            "type": "quantitative",
+            "title": "Mapped funding (AUD)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 110,
+        "shape": "diamond",
+        "color": "#245d88"
+      },
+      "encoding": {
+        "x": {
+          "field": "funding_share",
+          "type": "quantitative",
+          "title": "Share of eight-state total",
+          "scale": {
+            "domain": [
+              0,
+              0.3
+            ]
+          },
+          "axis": {
+            "format": ".0%",
+            "grid": true,
+            "gridColor": "#e3e9e5",
+            "tickCount": 7
+          }
+        },
+        "y": {
+          "field": "state_code",
+          "type": "nominal",
+          "sort": [
+            "NSW",
+            "TAS",
+            "VIC",
+            "SA",
+            "NT",
+            "WA",
+            "ACT",
+            "QLD"
+          ],
+          "title": null,
+          "axis": {
+            "grid": false,
+            "labelFontSize": 13
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state_code",
+            "title": "State or territory"
+          },
+          {
+            "field": "listing_share",
+            "type": "quantitative",
+            "title": "Share of listings",
+            "format": ".1%"
+          },
+          {
+            "field": "funding_share",
+            "type": "quantitative",
+            "title": "Share of mapped funding",
+            "format": ".1%"
+          },
+          {
+            "field": "gap_pp",
+            "type": "quantitative",
+            "title": "Funding minus listings (percentage points)",
+            "format": "+.1f"
+          },
+          {
+            "field": "listed_species",
+            "type": "quantitative",
+            "title": "State listings"
+          },
+          {
+            "field": "funding_aud",
+            "type": "quantitative",
+            "title": "Mapped funding (AUD)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.state_code == 'NSW' || datum.state_code == 'TAS'"
+        },
+        {
+          "calculate": "datum.state_code == 'NSW' ? '10 points lower' : '8 points higher'",
+          "as": "gap_label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#263e52"
+      },
+      "encoding": {
+        "x": {
+          "field": "upper",
+          "type": "quantitative",
+          "title": "Share of eight-state total",
+          "scale": {
+            "domain": [
+              0,
+              0.3
+            ]
+          },
+          "axis": {
+            "format": ".0%",
+            "grid": true,
+            "gridColor": "#e3e9e5",
+            "tickCount": 7
+          }
+        },
+        "y": {
+          "field": "state_code",
+          "type": "nominal",
+          "sort": [
+            "NSW",
+            "TAS",
+            "VIC",
+            "SA",
+            "NT",
+            "WA",
+            "ACT",
+            "QLD"
+          ],
+          "title": null,
+          "axis": {
+            "grid": false,
+            "labelFontSize": 13
+          }
+        },
+        "text": {
+          "field": "gap_label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.state_code == 'NSW'"
+        },
+        {
+          "calculate": "\"Share of listings\"",
+          "as": "direct_label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -12,
+        "dy": -15,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#66509a"
+      },
+      "encoding": {
+        "x": {
+          "field": "listing_share",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              0.3
+            ]
+          }
+        },
+        "y": {
+          "field": "state_code",
+          "type": "nominal",
+          "sort": [
+            "NSW",
+            "TAS",
+            "VIC",
+            "SA",
+            "NT",
+            "WA",
+            "ACT",
+            "QLD"
+          ]
+        },
+        "text": {
+          "field": "direct_label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.state_code == 'NSW'"
+        },
+        {
+          "calculate": "\"Share of funding\"",
+          "as": "direct_label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": 16,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#245d88"
+      },
+      "encoding": {
+        "x": {
+          "field": "funding_share",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              0.3
+            ]
+          }
+        },
+        "y": {
+          "field": "state_code",
+          "type": "nominal",
+          "sort": [
+            "NSW",
+            "TAS",
+            "VIC",
+            "SA",
+            "NT",
+            "WA",
+            "ACT",
+            "QLD"
+          ]
+        },
+        "text": {
+          "field": "direct_label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "gridColor": "#e2e8e4",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "axisY": {
+      "minExtent": 120
+    },
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+group,year,value
+Amphibians,2000,1.0
+Amphibians,2022,0.3791
+Birds,2000,1.0
+Birds,2022,0.5252
+Mammals,2000,1.0
+Mammals,2022,0.6481
+Reptiles,2000,1.0
+Reptiles,2022,0.1166
+Plants,2000,1.0
+Plants,2022,0.328633674444058

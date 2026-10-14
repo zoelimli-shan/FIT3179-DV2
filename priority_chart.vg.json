@@ -1,0 +1,150 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Priority entries by species group in two policy periods.",
+  "width": 360,
+  "height": 300,
+  "background": "transparent",
+  "data": {
+    "url": "data/priority_counts_by_group.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "priority_species": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.policy_period == '2015–2020 completed strategy' ? '2015–2020' : '2022–2032'",
+      "as": "period_short"
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "gridColor": "#e2e8e4",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#f5f7f3",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "period_short",
+          "type": "nominal",
+          "sort": [
+            "2015–2020",
+            "2022–2032"
+          ],
+          "title": "Priority list"
+        },
+        "y": {
+          "field": "taxon_group",
+          "type": "nominal",
+          "sort": [
+            "Birds",
+            "Mammals",
+            "Plants",
+            "Fish",
+            "Amphibians",
+            "Reptiles",
+            "Invertebrates"
+          ],
+          "title": "Species group"
+        },
+        "color": {
+          "field": "priority_species",
+          "type": "quantitative",
+          "title": "Priority entries",
+          "scale": {
+            "scheme": "purples",
+            "domainMin": 0
+          },
+          "legend": {
+            "orient": "right",
+            "direction": "vertical",
+            "gradientLength": 135,
+            "gradientThickness": 10,
+            "title": "Entries"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "taxon_group",
+            "type": "nominal",
+            "title": "Group"
+          },
+          {
+            "field": "policy_period",
+            "type": "nominal",
+            "title": "Priority list"
+          },
+          {
+            "field": "priority_species",
+            "type": "quantitative",
+            "title": "Priority entries",
+            "format": ".0f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.taxon_group == 'Plants' && datum.period_short == '2022–2032'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 15,
+        "fontWeight": "bold",
+        "color": "#ffffff"
+      },
+      "encoding": {
+        "x": {
+          "field": "period_short",
+          "type": "nominal",
+          "sort": [
+            "2015–2020",
+            "2022–2032"
+          ]
+        },
+        "y": {
+          "field": "taxon_group",
+          "type": "nominal"
+        },
+        "text": {
+          "field": "priority_species",
+          "type": "quantitative",
+          "format": ".0f"
+        }
+      }
+    }
+  ]
+}

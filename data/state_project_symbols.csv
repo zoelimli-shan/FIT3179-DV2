@@ -1,0 +1,9 @@
+state_code,state_name,longitude,latitude,project_count,funding_aud
+ACT,Australian Capital Territory,149.1,-35.3,6,2226652
+NSW,New South Wales,146.5,-32.0,23,11422429
+NT,Northern Territory,133.4,-19.5,14,21745489
+QLD,Queensland,145.0,-23.0,28,44331753
+SA,South Australia,135.5,-30.0,8,5469344
+TAS,Tasmania,146.8,-42.1,17,12158651.5
+VIC,Victoria,144.1,-37.3,27,14394221
+WA,Western Australia,121.5,-26.5,20,16048164

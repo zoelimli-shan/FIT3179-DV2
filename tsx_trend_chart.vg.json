@@ -1,0 +1,250 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Australian threatened-species population index, 2000–2022.",
+  "width": 620,
+  "height": 320,
+  "background": "transparent",
+  "data": {
+    "url": "data/tsx_all_groups_full_precision.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "value": "number",
+        "low": "number",
+        "high": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.taxon_group == 'All'"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "color": "#80b99e",
+        "opacity": 0.35
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "title": "Year",
+          "axis": {
+            "format": "d"
+          }
+        },
+        "y": {
+          "field": "low",
+          "type": "quantitative",
+          "title": "Population index (2000 = 1)",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          }
+        },
+        "y2": {
+          "field": "high"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "#176b50",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Year",
+            "format": "d"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Population index",
+            "format": ".3f"
+          },
+          {
+            "field": "low",
+            "type": "quantitative",
+            "title": "Lower bound",
+            "format": ".3f"
+          },
+          {
+            "field": "high",
+            "type": "quantitative",
+            "title": "Upper bound",
+            "format": ".3f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2015
+          },
+          {
+            "year": 2022
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          4
+        ],
+        "color": "#9b6d59",
+        "opacity": 0.7
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2015,
+            "y": 0.85,
+            "note": "2015 strategy"
+          },
+          {
+            "year": 2022,
+            "y": 0.65,
+            "note": "2022 plan"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "angle": 270,
+        "align": "left",
+        "dx": 4,
+        "fontSize": 11,
+        "color": "#775849"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2019"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 95,
+        "color": "#9a5c2f"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2019,
+            "value": 0.383264626885243,
+            "label": "2019 low: 0.383"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -12,
+        "dy": -17,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#9a5c2f"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "gridColor": "#e2e8e4",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  }
+}

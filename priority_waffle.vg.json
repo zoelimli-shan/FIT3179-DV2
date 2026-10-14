@@ -1,0 +1,91 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "One square per entry across the union of the two priority lists.",
+  "width": 560,
+  "height": 330,
+  "background": "transparent",
+  "data": {
+    "url": "data/priority_waffle.csv"
+  },
+  "mark": {
+    "type": "rect",
+    "stroke": "#f5f7f3",
+    "strokeWidth": 2,
+    "cornerRadius": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "column",
+      "type": "ordinal",
+      "axis": null
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "sort": "ascending",
+      "axis": null
+    },
+    "color": {
+      "field": "priority_change",
+      "type": "nominal",
+      "title": "List status",
+      "scale": {
+        "domain": [
+          "Retained",
+          "Added to current list",
+          "Not on current list"
+        ],
+        "range": [
+          "#51656e",
+          "#66509a",
+          "#9a5c2f"
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "common_name",
+        "type": "nominal",
+        "title": "Entry"
+      },
+      {
+        "field": "taxon_group",
+        "type": "nominal",
+        "title": "Group"
+      },
+      {
+        "field": "priority_change",
+        "type": "nominal",
+        "title": "Status"
+      }
+    ]
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "gridColor": "#e2e8e4",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  }
+}

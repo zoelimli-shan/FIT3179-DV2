@@ -1,0 +1,155 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Number of single-state listed projects across seven Saving Native Species Phase 1 funding streams.",
+  "width": 620,
+  "height": 440,
+  "background": "transparent",
+  "projection": {
+    "type": "equalEarth"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_eight_states_territories_vega.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e7ece8",
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_project_symbols.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "color": "#4c6470",
+        "opacity": 0.72,
+        "stroke": "#293e47",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "project_count",
+          "type": "quantitative",
+          "title": "Listed projects",
+          "scale": {
+            "domain": [
+              0,
+              30
+            ],
+            "range": [
+              0,
+              1600
+            ]
+          },
+          "legend": {
+            "orient": "bottom-left",
+            "title": "Project entries",
+            "values": [
+              10,
+              20,
+              30
+            ],
+            "symbolFillColor": "#4c6470",
+            "symbolStrokeColor": "#293e47"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state_name",
+            "type": "nominal",
+            "title": "State or territory"
+          },
+          {
+            "field": "project_count",
+            "type": "quantitative",
+            "title": "Single-state entries",
+            "format": ".0f"
+          },
+          {
+            "field": "funding_aud",
+            "type": "quantitative",
+            "title": "Listed funding (AUD)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "longitude": 145,
+            "latitude": -23,
+            "label": "QLD 28"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "align": "left",
+        "dx": 26,
+        "color": "#17362f"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "gridColor": "#e2e8e4",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  }
+}

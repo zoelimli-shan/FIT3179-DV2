@@ -1,0 +1,155 @@
+column,row,priority_change,taxon_group,common_name
+0,0,Retained,Birds,Australasian Bittern
+1,0,Retained,Birds,Eastern Curlew
+2,0,Retained,Birds,"Golden-shouldered Parrot, Alwal"
+3,0,Retained,Birds,Hooded Plover (eastern)
+4,0,Retained,Birds,Malleefowl
+5,0,Retained,Birds,Night Parrot
+6,0,Retained,Birds,Norfolk Island Green Parrot
+7,0,Retained,Birds,Orange-bellied Parrot
+8,0,Retained,Birds,Plains-wanderer
+9,0,Retained,Birds,Red-tailed Black Cockatoo (SE)
+10,0,Retained,Birds,Regent Honeyeater
+11,0,Retained,Birds,Swift Parrot
+12,0,Retained,Birds,"Western Ground Parrot, Kyloring"
+13,0,Retained,Birds,"White-throated Grasswren, Yirlinkirrkirr"
+0,1,Retained,Mammals,"Central Rock-rat, Antina"
+1,1,Retained,Mammals,"Chuditch, Western Quoll"
+2,1,Retained,Mammals,"Eastern Quoll, Luaner"
+3,1,Retained,Mammals,"Gilbert's Potoroo, Ngilkat"
+4,1,Retained,Mammals,Greater Bilby
+5,1,Retained,Mammals,Leadbeater's Possum
+6,1,Retained,Mammals,Mountain Pygmy-possum
+7,1,Retained,Mammals,"Northern Hopping-mouse, Woorrentinta"
+8,1,Retained,Mammals,Numbat
+9,1,Retained,Mammals,Western Ringtail Possum
+10,1,Retained,Plants,Bulberin Nut
+11,1,Retained,Plants,Foote's Grevillea
+12,1,Retained,Plants,Little Mountain Palm
+13,1,Added to current list,Amphibians,"Growling Grass Frog, Southern Bell Frog"
+0,2,Added to current list,Amphibians,Kroombit Tinker Frog
+1,2,Added to current list,Amphibians,Mountain Frog
+2,2,Added to current list,Amphibians,Mountain-top Nursery-frog
+3,2,Added to current list,Amphibians,Southern Corroboree Frog
+4,2,Added to current list,Amphibians,White-bellied Frog
+5,2,Added to current list,Birds,Black-eared Miner
+6,2,Added to current list,Birds,Carnaby's Cockatoo
+7,2,Added to current list,Birds,Christmas Island Goshawk
+8,2,Added to current list,Birds,King Island Brown Thornbill
+9,2,Added to current list,Birds,King Island Scrubtit
+10,2,Added to current list,Birds,Noisy Scrub-bird
+11,2,Added to current list,Birds,Princess Parrot
+12,2,Added to current list,Birds,Red Goshawk
+13,2,Added to current list,Fish,Freshwater Sawfish
+0,3,Added to current list,Fish,Grey Nurse Shark (eastern)
+1,3,Added to current list,Fish,Maugean Skate
+2,3,Added to current list,Fish,Murray Hardyhead
+3,3,Added to current list,Fish,Red Handfish
+4,3,Added to current list,Fish,Redfin Blue-eye
+5,3,Added to current list,Fish,Stocky Galaxias
+6,3,Added to current list,Fish,Swan Galaxias
+7,3,Added to current list,Fish,White's Seahorse
+8,3,Added to current list,Invertebrates,Ammonite Snail
+9,3,Added to current list,Invertebrates,Cauliflower Soft Coral
+10,3,Added to current list,Invertebrates,Eltham Copper Butterfly
+11,3,Added to current list,Invertebrates,Giant Gippsland Earthworm
+12,3,Added to current list,Invertebrates,Glenelg Freshwater Mussel
+13,3,Added to current list,Invertebrates,Kangaroo Island Assassin Spider
+0,4,Added to current list,Invertebrates,Lord Howe Island Phasmid
+1,4,Added to current list,Invertebrates,Margaret River Burrowing Crayfish
+2,4,Added to current list,Invertebrates,Mount Lidgbird Charopid Land Snail
+3,4,Added to current list,Invertebrates,Pink Underwing Moth
+4,4,Added to current list,Invertebrates,Tasmanian Giant Freshwater Crayfish
+5,4,Added to current list,Mammals,Australian Sea-lion
+6,4,Added to current list,Mammals,Brush-tailed Rock-wallaby
+7,4,Added to current list,Mammals,Kangaroo Island Echidna
+8,4,Added to current list,Mammals,"Koala (Qld, NSW, ACT)"
+9,4,Added to current list,Mammals,"New Holland Mouse, Pookila"
+10,4,Added to current list,Mammals,Northern Brushtail Possum
+11,4,Added to current list,Mammals,"Northern Hairy-nosed Wombat, Yaminon"
+12,4,Added to current list,Mammals,Northern Quoll
+13,4,Added to current list,Mammals,Quokka
+0,5,Added to current list,Mammals,Southern Bent-wing Bat
+1,5,Added to current list,Mammals,Spectacled Flying-fox
+2,5,Added to current list,Plants,Adamson's Blown-grass
+3,5,Added to current list,Plants,Angle-stemmed Myrtle
+4,5,Added to current list,Plants,Arckaringa Daisy
+5,5,Added to current list,Plants,Bolivia Hill Rice-flower
+6,5,Added to current list,Plants,Border Ranges Lined Fern
+7,5,Added to current list,Plants,Carrington Falls Pomaderris
+8,5,Added to current list,Plants,Davies' Waxflower
+9,5,Added to current list,Plants,Forked Spyridium
+10,5,Added to current list,Plants,Giant Andersonia
+11,5,Added to current list,Plants,Gorge Rice-flower
+12,5,Added to current list,Plants,Graveside Leek-orchid
+13,5,Added to current list,Plants,Imlay Mallee
+0,6,Added to current list,Plants,King Blue-grass
+1,6,Added to current list,Plants,Lax Leek Orchid
+2,6,Added to current list,Plants,MacDonnell Ranges Cycad
+3,6,Added to current list,Plants,Narrow-leaf Eremophila
+4,6,Added to current list,Plants,Native Guava
+5,6,Added to current list,Plants,Scaly-butt Mallee
+6,6,Added to current list,Plants,Small-flowered Snottygobble
+7,6,Added to current list,Plants,Smooth Davidson's Plum
+8,6,Added to current list,Plants,Stiff Groundsel
+9,6,Added to current list,Plants,Stirling Range Dryandra
+10,6,Added to current list,Plants,Tangled Wattle
+11,6,Added to current list,Plants,"Waddy, Waddi, Waddy-wood, Birdsville Wattle"
+12,6,Added to current list,Plants,Wollemi Pine
+13,6,Added to current list,Plants,Wongan Eriostemon
+0,7,Added to current list,Plants,Woods Well Spyridium
+1,7,Added to current list,Reptiles,Arnhem Land Gorges Skink
+2,7,Added to current list,Reptiles,Bellinger River Snapping Turtle
+3,7,Added to current list,Reptiles,Canberra Grassland Earless Dragon
+4,7,Added to current list,Reptiles,"Collared Delma, Adorned Delma"
+5,7,Added to current list,Reptiles,"Great Desert Skink, Tjakura, Warrarna, Mulyamiji"
+6,7,Added to current list,Reptiles,Green Turtle
+7,7,Added to current list,Reptiles,Olive Ridley Turtle
+8,7,Added to current list,Reptiles,Pygmy Blue-tongue Lizard
+9,7,Added to current list,Reptiles,Short-nosed Sea Snake
+10,7,Added to current list,Reptiles,Western Swamp Tortoise
+11,7,Added to current list,Reptiles,Yinnietharra Rock-dragon
+12,7,Not on current list,Birds,Alligator Rivers Yellow Chat
+13,7,Not on current list,Birds,Christmas Island Frigatebird
+0,8,Not on current list,Birds,Eastern Bristlebird
+1,8,Not on current list,Birds,Helmeted Honeyeater
+2,8,Not on current list,Birds,Mallee Emu-wren
+3,8,Not on current list,Birds,Norfolk Island Boobook Owl
+4,8,Not on current list,Birds,Southern Cassowary
+5,8,Not on current list,Mammals,Black-footed Rock-wallaby
+6,8,Not on current list,Mammals,Brush-tailed Rabbit-rat
+7,8,Not on current list,Mammals,Christmas Island Flying-fox
+8,8,Not on current list,Mammals,Eastern Barred Bandicoot (mainland)
+9,8,Not on current list,Mammals,Eastern Bettong (mainland)
+10,8,Not on current list,Mammals,Golden Bandicoot
+11,8,Not on current list,Mammals,Kangaroo Island Dunnart
+12,8,Not on current list,Mammals,Mahogany Glider
+13,8,Not on current list,Mammals,Mala
+0,9,Not on current list,Mammals,Woylie
+1,9,Not on current list,Plants,Ant Plant
+2,9,Not on current list,Plants,Blue-top Sun-orchid
+3,9,Not on current list,Plants,Button Wrinklewort
+4,9,Not on current list,Plants,Caley’s Grevillea
+5,9,Not on current list,Plants,Central Australian Cabbage Palm
+6,9,Not on current list,Plants,Fairy Bells
+7,9,Not on current list,Plants,Fitzgerald’s Mulla-mulla
+8,9,Not on current list,Plants,Fleurieu Leek Orchid
+9,9,Not on current list,Plants,Glossy-leaved Hammer-orchid
+10,9,Not on current list,Plants,Kakadu Hibiscus
+11,9,Not on current list,Plants,Magenta Lilly Pilly
+12,9,Not on current list,Plants,Matchstick Banksia
+13,9,Not on current list,Plants,Mongarlowe Mallee
+0,10,Not on current list,Plants,Morrisby’s Gum
+1,10,Not on current list,Plants,Mossman Fairy Orchid
+2,10,Not on current list,Plants,Ormeau Bottle Tree
+3,10,Not on current list,Plants,Purple Wattle
+4,10,Not on current list,Plants,Scaly-leaved Featherflower
+5,10,Not on current list,Plants,Shy Susan
+6,10,Not on current list,Plants,Silver Daisy Bush
+7,10,Not on current list,Plants,Silver Gum
+8,10,Not on current list,Plants,Small Purple-pea
+9,10,Not on current list,Plants,Southport Heath
+10,10,Not on current list,Plants,Spiny Rice Flower
+11,10,Not on current list,Plants,Turnip Copperburr
+12,10,Not on current list,Plants,Vincentia Banksia
+13,10,Not on current list,Plants,Whibley’s Wattle

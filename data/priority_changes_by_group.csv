@@ -1,0 +1,22 @@
+taxon_group,priority_change,species_count
+Amphibians,Retained,0
+Amphibians,Added to current list,6
+Amphibians,Not on current list,0
+Birds,Retained,14
+Birds,Added to current list,8
+Birds,Not on current list,7
+Fish,Retained,0
+Fish,Added to current list,9
+Fish,Not on current list,0
+Invertebrates,Retained,0
+Invertebrates,Added to current list,11
+Invertebrates,Not on current list,0
+Mammals,Retained,10
+Mammals,Added to current list,11
+Mammals,Not on current list,10
+Plants,Retained,3
+Plants,Added to current list,27
+Plants,Not on current list,27
+Reptiles,Retained,0
+Reptiles,Added to current list,11
+Reptiles,Not on current list,0

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Australia's Conservation Choices</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow"><svg class="leaf-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 25C7 13 13 6 26 5c0 13-7 20-20 20Zm0 0c5-7 10-11 18-16" /></svg> Threatened wildlife · Australia</p>
+    <h1>Australia's Conservation Choices</h1>
+    <p class="lead">A national score for monitored threatened populations stood at 42% of its 2000 level by 2022. Australia's priority lists have changed and millions of dollars have been listed for projects. Where is that effort focused, and what evidence of recovery can we see?</p>
+    <div class="key-numbers" aria-label="Key findings">
+      <div><strong>42%</strong><span>2022 monitored population score relative to 2000</span></div>
+      <div><strong>110</strong><span>entries on the 2022–2032 priority list</span></div>
+      <div><strong>24 of 71</strong><span>older priorities with improved trajectories by 2020</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="challenge" aria-labelledby="challenge-title">
+      <h2 id="challenge-title">1. Monitored populations fell to 42% of their 2000 level</h2>
+      <div class="story-row">
+        <div class="story-copy"><p>Australia’s national score for monitored threatened populations starts at 1 in 2000. It reached its low of 0.383 in 2019 and stood at 0.417 in 2022. Reptiles had the lowest 2022 group score, while mammals declined less steeply. The figures make the scale of the challenge clear before we turn to the choices made in response.</p></div>
+        <figure class="viz" aria-label="National threatened population index, 2000–2022"><figcaption><strong>National threatened population index, 2000–2022</strong><span>The score sets 2000 to 1; the pale band shows its reported range.</span></figcaption><div id="tsx_trend_chart"></div></figure>
+      </div>
+      <p class="bridge">The shared decline hides sharply different paths between groups.</p>
+      <figure class="viz" aria-label="Population index change by group, 2000–2022"><figcaption><strong>Population index change by group, 2000–2022</strong><span>Each line joins 2000 and 2022 for one monitored group.</span></figcaption><div id="tsx_group_slope"></div></figure>
+      <figure class="viz" aria-label="Population index trends by group"><figcaption><strong>Population index trends by group</strong><span>All five panels use the same population-index scale.</span></figcaption><div id="tsx_group_trends"></div></figure>
+    </section>
+
+    <section id="priorities" aria-labelledby="priorities-title">
+      <h2 id="priorities-title">2. Three in four newer priorities were absent from the earlier list</h2>
+      <div class="story-row">
+        <div class="story-copy"><p>The 2022–2032 list contains 110 entries, including species and some named populations. Four groups entered the newer priority list. Of its entries, 83 were absent from the 2015–2020 priority list and only 27 carried over. Plants numbered 30 on each list, yet only three appeared on both. The lists show where national attention shifted; funding shows how some of that attention was put into projects.</p></div>
+        <figure class="viz" aria-label="Priority entries by species group and list"><figcaption><strong>Priority entries by species group and list</strong><span>Darker cells contain more entries in that group and period.</span></figcaption><div id="priority_chart"></div></figure>
+      </div>
+      <figure class="viz" aria-label="Changes between the two priority lists"><figcaption><strong>Changes between the two priority lists</strong><span>Each square represents one entry across the two lists.</span></figcaption><div id="priority_waffle"></div></figure>
+      <p class="insight">The two lists contain 154 distinct entries: 27 retained, 83 added and 44 absent from the newer list.</p>
+    </section>
+
+    <section id="investment" aria-labelledby="investment-title">
+      <h2 id="investment-title">3. Priority places received AUD 56 million of AUD 147 million</h2>
+      <div class="story-row">
+        <div class="story-copy"><p>Saving Native Species Phase 1 has 161 entries in the seven project streams used here, totalling AUD 147.43 million in listed funding. Priority places make up the largest amount, at AUD 56.08 million. The state views focus on projects assigned to one state, revealing how the total changes by purpose and location.</p></div>
+        <figure class="viz" aria-label="Listed funding by project stream"><figcaption><strong>Listed funding by project stream</strong><span>Bars start at zero and show listed funding in AUD.</span></figcaption><div id="funding_chart"></div></figure>
+      </div>
+      <figure class="viz" aria-label="Funding shares by state and purpose"><figcaption><strong>Funding shares by state and purpose</strong><span>Column width shows each state’s share; colour shows funding purpose.</span></figcaption><div id="funding_mosaic"></div><p class="chart-finding">Queensland holds the widest funding column.</p></figure>
+      <p class="bridge">The next three maps answer different questions: how much, how many entries, and where the listed allocations connect.</p>
+      <div class="figure-pair maps">
+        <figure class="viz" aria-label="Priority-species funding by state"><figcaption><strong>Priority-species funding by state</strong><span>Darker states have larger allocations across 76 single-state priority-species entries.</span></figcaption><div id="priority_funding_map"></div><p class="chart-finding">Queensland leads mapped priority-species funding.</p></figure>
+        <figure class="viz" aria-label="Single-state project entries by state"><figcaption><strong>Single-state project entries by state</strong><span>Circle area shows the number of entries among 143 single-state projects.</span></figcaption><div id="project_count_symbol_map"></div><p class="chart-finding">Queensland has the most single-state entries.</p></figure>
+      </div>
+      <figure class="viz" aria-label="Mapped project allocations from Commonwealth to states"><figcaption><strong>Mapped project allocations from Commonwealth to states</strong><span>Thicker lines show larger allocations across those 143 single-state entries.</span></figcaption><div id="funding_flow_map"></div><p class="chart-finding">Queensland has the largest mapped allocation.</p></figure>
+    </section>
+
+    <section id="state-lists" aria-labelledby="state-lists-title">
+      <h2 id="state-lists-title">4. State listings and mapped funding have different patterns</h2>
+      <p class="section-intro">The Environment Protection and Biodiversity Conservation (EPBC) Act lists threatened species in each state. Plants account for about 71% of WA’s state entries and 65% of NSW’s. Comparing the share of these listings with mapped priority-species funding reveals the largest gap for NSW. That comparison describes the pattern of two measures; the outcome evidence comes next.</p>
+      <div class="figure-pair context">
+        <figure class="viz" aria-label="Plant share of threatened listings by state"><figcaption><strong>Plant share of threatened listings by state</strong><span>Equal-sized tiles show the plant share of state listings.</span></figcaption><div id="plant_share_tile_map"></div></figure>
+        <figure class="viz" aria-label="Threatened listings by state and species group"><figcaption><strong>Threatened listings by state and species group</strong><span>Darker cells contain more species listed in that state and group.</span></figcaption><div id="state_group_heatmap"></div><p class="chart-finding">NSW has 469 listed plant entries.</p></figure>
+      </div>
+      <figure class="viz" aria-label="State shares of threatened listings and mapped funding"><figcaption><strong>State shares of threatened listings and mapped funding</strong><span>Compare each state’s listing share with the funding share from 76 mapped entries.</span></figcaption><div id="funding_listing_dumbbell"></div></figure>
+    </section>
+
+    <section id="evidence" aria-labelledby="evidence-title">
+      <h2 id="evidence-title">5. Only 24 of 71 earlier priorities improved</h2>
+      <div class="story-row">
+        <div class="story-copy"><p>An independent Year Five assessment found improved trajectories for 24 of the 71 earlier priorities. Fifteen of those improved entries were absent from the newer list, while seven entries with deteriorated trajectories stayed. That mix of outcomes raises another question: what can we learn by following one population for longer?</p></div>
+        <figure class="viz viz--compact" aria-label="Year Five outcomes and later priority status"><figcaption><strong>Year Five outcomes and later priority status</strong><span>Each ribbon represents entries with one outcome and later list status.</span></figcaption><div id="outcome_alluvial"></div></figure>
+      </div>
+      <p class="bridge">A longer record brings the outcome question down to one population.</p>
+      <p>The northern hairy-nosed wombat provides a separate view of change over decades. Its recovery plan plots selected population estimates from about 35 in 1982 to about 315 in 2021. Read alongside the mixed Year Five results, this series shows why repeated measurements matter when judging progress over time.</p>
+      <figure class="viz" aria-label="Northern hairy-nosed wombat population estimates, 1982–2021"><figcaption><strong>Northern hairy-nosed wombat population estimates, 1982–2021</strong><span>Points show selected estimates reported in the recovery plan.</span></figcaption><div id="wombat_population_chart"></div></figure>
+    </section>
+
+    <section id="takeaway" aria-labelledby="takeaway-title">
+      <h2 id="takeaway-title">Conclusion</h2>
+      <p>Monitored populations declined, priority lists changed and listed funding varied by stream and state. Earlier outcomes were mixed, while the wombat estimates show that local recovery is possible. These sources cover different species and periods, so they leave the results of the 2022–2032 plan open for future measurement.</p>
+    </section>
+  </main>
+
+
+  <script src="vega_lite_vis.js"></script>
+</body>
+</html>

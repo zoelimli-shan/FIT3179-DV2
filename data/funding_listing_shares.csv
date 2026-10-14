@@ -1,0 +1,17 @@
+state_code,measure,share,listed_species,funding_aud,aud_per_listing
+ACT,State listings,0.023673,70,1430661.0,20438
+ACT,Mapped funding,0.050521,70,1430661.0,20438
+NSW,State listings,0.245519,726,4113180.0,5666
+NSW,Mapped funding,0.145249,726,4113180.0,5666
+NT,State listings,0.048022,142,2579868.0,18168
+NT,Mapped funding,0.091103,142,2579868.0,18168
+QLD,State listings,0.195807,579,5043787.0,8711
+QLD,Mapped funding,0.178111,579,5043787.0,8711
+SA,State listings,0.10044,297,1473930.0,4963
+SA,Mapped funding,0.052049,297,1473930.0,4963
+TAS,State listings,0.073385,217,4341244.0,20006
+TAS,Mapped funding,0.153302,217,4341244.0,20006
+VIC,State listings,0.115996,343,4933738.0,14384
+VIC,Mapped funding,0.174225,343,4933738.0,14384
+WA,State listings,0.197159,583,4401798.0,7550
+WA,Mapped funding,0.155441,583,4401798.0,7550

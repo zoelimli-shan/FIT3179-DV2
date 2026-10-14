@@ -1,0 +1,13 @@
+flow,outcome,list_status,entries,stage,low,high
+Improved → Retained,Improved,Retained,9,0,0,9
+Improved → Retained,Improved,Retained,9,1,0,9
+Improved → Not on current list,Improved,Not on current list,15,0,9,24
+Improved → Not on current list,Improved,Not on current list,15,1,27,42
+No significant change → Retained,No significant change,Retained,11,0,24,35
+No significant change → Retained,No significant change,Retained,11,1,9,20
+No significant change → Not on current list,No significant change,Not on current list,21,0,35,56
+No significant change → Not on current list,No significant change,Not on current list,21,1,42,63
+Deteriorated → Retained,Deteriorated,Retained,7,0,56,63
+Deteriorated → Retained,Deteriorated,Retained,7,1,20,27
+Deteriorated → Not on current list,Deteriorated,Not on current list,8,0,63,71
+Deteriorated → Not on current list,Deteriorated,Not on current list,8,1,63,71

@@ -1,0 +1,144 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Monitored population index endpoints for five groups.",
+  "width": 530,
+  "height": 290,
+  "background": "transparent",
+  "data": {
+    "url": "data/tsx_group_endpoints.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "detail": {
+          "field": "group",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 90
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2022"
+        },
+        {
+          "calculate": "datum.group + ' ' + format(datum.value, '.2f')",
+          "as": "end_label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 9,
+        "fontSize": 12
+      },
+      "encoding": {
+        "text": {
+          "field": "end_label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "sort": [
+        2000,
+        2022
+      ],
+      "title": null,
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Population index (2000 = 1)",
+      "scale": {
+        "domain": [
+          0,
+          1.05
+        ]
+      }
+    },
+    "color": {
+      "field": "group",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "domain": [
+          "Birds",
+          "Mammals",
+          "Amphibians",
+          "Reptiles",
+          "Plants"
+        ],
+        "range": [
+          "#2c6f74",
+          "#365874",
+          "#925623",
+          "#8b4f6e",
+          "#4e7135"
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "group",
+        "title": "Group"
+      },
+      {
+        "field": "year",
+        "title": "Year"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Index",
+        "format": ".3f"
+      }
+    ]
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "gridColor": "#e2e8e4",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  }
+}

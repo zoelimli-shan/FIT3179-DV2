@@ -1,0 +1,181 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Schematic Commonwealth-to-state allocation links for single-state entries.",
+  "width": 620,
+  "height": 440,
+  "background": "transparent",
+  "projection": {
+    "type": "equalEarth"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_eight_states_territories_vega.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e7ece8",
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_funding_flows.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#245d88",
+        "opacity": 0.68
+      },
+      "encoding": {
+        "strokeWidth": {
+          "field": "properties.funding_aud",
+          "type": "quantitative",
+          "title": "Listed funding (AUD)",
+          "scale": {
+            "domainMin": 0,
+            "range": [
+              0,
+              11
+            ]
+          },
+          "legend": {
+            "orient": "bottom-left",
+            "title": "Listed AUD",
+            "values": [
+              10000000,
+              25000000,
+              40000000
+            ],
+            "format": "~s",
+            "symbolType": "stroke",
+            "symbolStrokeColor": "#245d88",
+            "symbolSize": 220
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.state_name",
+            "title": "State or territory"
+          },
+          {
+            "field": "properties.funding_aud",
+            "type": "quantitative",
+            "title": "Listed funding (AUD)",
+            "format": ",.0f"
+          },
+          {
+            "field": "properties.project_count",
+            "type": "quantitative",
+            "title": "Entries"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "longitude": 149.1,
+            "latitude": -35.3,
+            "label": "ACT / Commonwealth reference"
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "size": 130,
+        "fill": "#c35f3e",
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "label",
+            "type": "nominal"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "longitude": 146.1,
+            "latitude": -21.5,
+            "label": "QLD AUD 44.33m"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "align": "left",
+        "dx": 6,
+        "color": "#17362f"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#52635a",
+      "titleColor": "#17362f",
+      "gridColor": "#e2e8e4",
+      "gridWidth": 0.7,
+      "domainColor": "#bacbc0",
+      "tickColor": "#bacbc0"
+    },
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#17362f",
+      "titleColor": "#17362f",
+      "orient": "bottom",
+      "direction": "vertical"
+    }
+  }
+}
