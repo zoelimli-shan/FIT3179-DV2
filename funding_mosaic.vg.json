@@ -4,6 +4,7 @@
   "width": 620,
   "height": 335,
   "background": "transparent",
+  "padding": {"top": 58, "right": 5, "bottom": 5, "left": 5},
   "data": {
     "url": "data/state_stream_grouped_mosaic.csv"
   },
@@ -170,6 +171,62 @@
           "field": "label",
           "type": "nominal"
         }
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.stream_group == 'Priority places' && datum.state_code != 'SA' && datum.state_code != 'ACT'"},
+        {"calculate": "(datum.x0 + datum.x1) / 2", "as": "xcenter"}
+      ],
+      "mark": {
+        "type": "text",
+        "baseline": "bottom",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#17362f"
+      },
+      "encoding": {
+        "x": {"field": "xcenter", "type": "quantitative", "scale": {"domain": [0, 1]}},
+        "y": {"value": -8},
+        "text": {"field": "state_code"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.stream_group == 'Priority places' && datum.state_code == 'SA'"},
+        {"calculate": "(datum.x0 + datum.x1) / 2", "as": "xcenter"},
+        {"calculate": "'South Australia (SA)'", "as": "state_label"}
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "fontSize": 11,
+        "color": "#17362f"
+      },
+      "encoding": {
+        "x": {"field": "xcenter", "type": "quantitative", "scale": {"domain": [0, 1]}},
+        "y": {"value": -26},
+        "text": {"field": "state_label"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.stream_group == 'Priority places' && datum.state_code == 'ACT'"},
+        {"calculate": "(datum.x0 + datum.x1) / 2", "as": "xcenter"},
+        {"calculate": "'Australian Capital Territory (ACT)'", "as": "state_label"}
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "fontSize": 11,
+        "color": "#17362f"
+      },
+      "encoding": {
+        "x": {"field": "xcenter", "type": "quantitative", "scale": {"domain": [0, 1]}},
+        "y": {"value": -45},
+        "text": {"field": "state_label"}
       }
     }
   ]
