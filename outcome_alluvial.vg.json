@@ -1,44 +1,20 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Opaque noncrossing ribbons partition 71 prior entries by trajectory outcome and later list status.",
-  "width": 400,
+  "description": "Year Five outcomes regrouped by later priority-list status.",
+  "width": 240,
   "height": 210,
   "background": "transparent",
+  "padding": 5,
   "data": {
     "url": "data/outcome_alluvial.csv",
     "format": {
       "type": "csv",
       "parse": {
-        "entries": "number"
+        "entries": "number",
+        "stage": "number",
+        "low": "number",
+        "high": "number"
       }
-    }
-  },
-  "config": {
-    "font": "Source Sans 3",
-    "axis": {
-      "labelFontSize": 12,
-      "titleFontSize": 13,
-      "labelFont": "Source Sans 3",
-      "titleFont": "Source Sans 3",
-      "labelColor": "#52635a",
-      "titleColor": "#17362f",
-      "gridColor": "#e2e8e4",
-      "gridWidth": 0.7,
-      "domainColor": "#bacbc0",
-      "tickColor": "#bacbc0"
-    },
-    "view": {
-      "stroke": null
-    },
-    "legend": {
-      "labelFont": "Source Sans 3",
-      "titleFont": "Source Sans 3",
-      "labelFontSize": 12,
-      "titleFontSize": 12,
-      "labelColor": "#17362f",
-      "titleColor": "#17362f",
-      "orient": "bottom",
-      "direction": "vertical"
     }
   },
   "layer": [
@@ -56,38 +32,29 @@
           "type": "quantitative",
           "title": null,
           "scale": {
-            "domain": [
-              0,
-              1
-            ]
+            "domain": [0, 1]
           },
           "axis": {
-            "values": [
-              0,
-              1
-            ],
-            "labelExpr": "datum.value == 0 ? '2015–2020 outcome' : '2022–2032 list'",
+            "values": [0, 1],
+            "labelExpr": "datum.value == 0 ? 'Year Five outcome' : '2022–2032 list'",
             "labelAngle": 0,
+            "labelPadding": 12,
             "ticks": false,
-            "grid": false
+            "grid": false,
+            "domain": false
           }
         },
         "y": {
-          "field": "display_low",
+          "field": "low",
           "type": "quantitative",
-          "title": "Entries",
+          "stack": null,
           "scale": {
-            "domain": [
-              0,
-              71
-            ]
+            "domain": [0, 71]
           },
-          "axis": {
-            "tickCount": 4
-          }
+          "axis": null
         },
         "y2": {
-          "field": "display_high"
+          "field": "high"
         },
         "detail": {
           "field": "flow",
@@ -96,7 +63,6 @@
         "color": {
           "field": "outcome",
           "type": "nominal",
-          "title": "Trajectory assessment",
           "scale": {
             "domain": [
               "Improved",
@@ -114,16 +80,17 @@
         "tooltip": [
           {
             "field": "outcome",
-            "title": "2015–2020 assessment"
+            "title": "Year Five outcome"
           },
           {
             "field": "list_status",
-            "title": "Current list"
+            "title": "2022–2032 list status"
           },
           {
             "field": "entries",
             "type": "quantitative",
-            "title": "Entries"
+            "title": "Entries",
+            "format": "d"
           }
         ]
       }
@@ -132,131 +99,140 @@
       "data": {
         "values": [
           {
-            "stage": 0.08,
             "center": 12,
-            "label": "Improved"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "fontSize": 13,
-        "fontWeight": "bold",
-        "color": "#ffffff"
-      },
-      "encoding": {
-        "x": {
-          "field": "stage",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              1
-            ]
-          }
-        },
-        "y": {
-          "field": "center",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              71
-            ]
-          }
-        },
-        "text": {
-          "field": "label",
-          "type": "nominal"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
+            "label": "24 improved"
+          },
           {
-            "stage": 0.08,
             "center": 40,
-            "label": "No significant change"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "fontSize": 13,
-        "fontWeight": "bold",
-        "color": "#17362f"
-      },
-      "encoding": {
-        "x": {
-          "field": "stage",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              1
-            ]
-          }
-        },
-        "y": {
-          "field": "center",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              71
-            ]
-          }
-        },
-        "text": {
-          "field": "label",
-          "type": "nominal"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
+            "label": "32 no significant|change"
+          },
           {
-            "stage": 0.08,
             "center": 63.5,
-            "label": "Deteriorated"
+            "label": "15 deteriorated"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -10,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "lineBreak": "|",
+        "lineHeight": 15,
+        "color": "#17362f",
+        "clip": false
+      },
+      "encoding": {
+        "x": {
+          "datum": 0,
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 1]
+          }
+        },
+        "y": {
+          "field": "center",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 71]
+          }
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "center": 13.5,
+            "label": "27 retained"
+          },
+          {
+            "center": 49,
+            "label": "44 absent from|newer list"
           }
         ]
       },
       "mark": {
         "type": "text",
         "align": "left",
-        "fontSize": 13,
+        "baseline": "middle",
+        "dx": 20,
+        "fontSize": 12,
         "fontWeight": "bold",
-        "color": "#ffffff"
+        "lineBreak": "|",
+        "lineHeight": 15,
+        "color": "#17362f",
+        "clip": false
       },
       "encoding": {
         "x": {
-          "field": "stage",
+          "datum": 1,
           "type": "quantitative",
           "scale": {
-            "domain": [
-              0,
-              1
-            ]
+            "domain": [0, 1]
           }
         },
         "y": {
           "field": "center",
           "type": "quantitative",
           "scale": {
-            "domain": [
-              0,
-              71
-            ]
+            "domain": [0, 71]
           }
         },
         "text": {
-          "field": "label",
-          "type": "nominal"
+          "field": "label"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.stage == 1"
+        },
+        {
+          "calculate": "(datum.low + datum.high) / 2",
+          "as": "center"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -6,
+        "fontSize": 11,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {
+          "field": "stage",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 1]
+          }
+        },
+        "y": {
+          "field": "center",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 71]
+          }
+        },
+        "text": {
+          "field": "entries",
+          "type": "quantitative",
+          "format": "d"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.outcome == 'No significant change'",
+            "value": "#17362f"
+          },
+          "value": "#ffffff"
         }
       }
     },
@@ -264,48 +240,34 @@
       "data": {
         "values": [
           {
-            "stage": 0.96,
-            "center": 4.5,
-            "label": "9 stayed"
+            "low": 0.5,
+            "high": 26.5
           },
           {
-            "stage": 0.96,
-            "center": 16.5,
-            "label": "15 left"
+            "low": 27.5,
+            "high": 70.5
           }
         ]
       },
       "mark": {
-        "type": "text",
-        "align": "right",
-        "fontSize": 12,
-        "fontWeight": "bold",
-        "color": "#ffffff"
+        "type": "rule",
+        "color": "#52635a",
+        "strokeWidth": 1,
+        "clip": false
       },
       "encoding": {
         "x": {
-          "field": "stage",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              1
-            ]
-          }
+          "value": 248
         },
         "y": {
-          "field": "center",
+          "field": "low",
           "type": "quantitative",
           "scale": {
-            "domain": [
-              0,
-              71
-            ]
+            "domain": [0, 71]
           }
         },
-        "text": {
-          "field": "label",
-          "type": "nominal"
+        "y2": {
+          "field": "high"
         }
       }
     },
@@ -313,109 +275,51 @@
       "data": {
         "values": [
           {
-            "stage": 0.96,
-            "center": 29.5,
-            "label": "11 stayed"
+            "position": 0.5
           },
           {
-            "stage": 0.96,
-            "center": 45.5,
-            "label": "21 left"
+            "position": 26.5
+          },
+          {
+            "position": 27.5
+          },
+          {
+            "position": 70.5
           }
         ]
       },
       "mark": {
-        "type": "text",
-        "align": "right",
-        "fontSize": 12,
-        "fontWeight": "bold",
-        "color": "#17362f"
+        "type": "rule",
+        "color": "#52635a",
+        "strokeWidth": 1,
+        "clip": false
       },
       "encoding": {
         "x": {
-          "field": "stage",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              1
-            ]
-          }
+          "value": 243
+        },
+        "x2": {
+          "value": 248
         },
         "y": {
-          "field": "center",
+          "field": "position",
           "type": "quantitative",
           "scale": {
-            "domain": [
-              0,
-              71
-            ]
+            "domain": [0, 71]
           }
-        },
-        "text": {
-          "field": "label",
-          "type": "nominal"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "stage": 0.96,
-            "center": 59.5,
-            "label": "7 stayed"
-          },
-          {
-            "stage": 0.96,
-            "center": 67,
-            "label": "8 left"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "fontSize": 12,
-        "fontWeight": "bold",
-        "color": "#ffffff"
-      },
-      "encoding": {
-        "x": {
-          "field": "stage",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              1
-            ]
-          }
-        },
-        "y": {
-          "field": "center",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              71
-            ]
-          }
-        },
-        "text": {
-          "field": "label",
-          "type": "nominal"
         }
       }
     }
   ],
-  "transform": [
-    {
-      "calculate": "datum.flow == \"Improved → Retained\" ? 0 : datum.flow == \"Improved → Not on current list\" ? 9 : datum.flow == \"No significant change → Retained\" ? 24 : datum.flow == \"No significant change → Not on current list\" ? 35 : datum.flow == \"Deteriorated → Retained\" ? 56 : datum.flow == \"Deteriorated → Not on current list\" ? 63 : 0",
-      "as": "display_low"
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "labelColor": "#52635a"
     },
-    {
-      "calculate": "datum.display_low + datum.entries * 1",
-      "as": "display_high"
+    "view": {
+      "stroke": null
     }
-  ]
+  }
 }
