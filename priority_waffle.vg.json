@@ -4,62 +4,101 @@
   "width": 560,
   "height": 330,
   "background": "transparent",
+  "padding": {"top": 5, "right": 170, "bottom": 5, "left": 5},
   "data": {
-    "url": "data/priority_waffle.csv"
+    "url": "data/priority_waffle.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "column": "number",
+        "row": "number"
+      }
+    }
   },
-  "mark": {
-    "type": "rect",
-    "stroke": "#f5f7f3",
-    "strokeWidth": 2,
-    "cornerRadius": 2
-  },
-  "encoding": {
-    "x": {
-      "field": "column",
-      "type": "ordinal",
-      "axis": null
-    },
-    "y": {
-      "field": "row",
-      "type": "ordinal",
-      "sort": "ascending",
-      "axis": null
-    },
-    "color": {
-      "field": "priority_change",
-      "type": "nominal",
-      "title": "List status",
-      "scale": {
-        "domain": [
-          "Retained",
-          "Added to current list",
-          "Not on current list"
-        ],
-        "range": [
-          "#51656e",
-          "#66509a",
-          "#9a5c2f"
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#f5f7f3",
+        "strokeWidth": 2,
+        "cornerRadius": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "column",
+          "type": "ordinal",
+          "axis": null
+        },
+        "y": {
+          "field": "row",
+          "type": "ordinal",
+          "sort": "ascending",
+          "axis": null
+        },
+        "color": {
+          "field": "priority_change",
+          "type": "nominal",
+          "title": "List status",
+          "scale": {
+            "domain": [
+              "Retained",
+              "Added to current list",
+              "Not on current list"
+            ],
+            "range": [
+              "#51656e",
+              "#66509a",
+              "#9a5c2f"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "common_name",
+            "type": "nominal",
+            "title": "Entry"
+          },
+          {
+            "field": "taxon_group",
+            "type": "nominal",
+            "title": "Group"
+          },
+          {
+            "field": "priority_change",
+            "type": "nominal",
+            "title": "Status"
+          }
         ]
       }
     },
-    "tooltip": [
-      {
-        "field": "common_name",
-        "type": "nominal",
-        "title": "Entry"
+    {
+      "data": {
+        "values": [
+          {"row": 1, "label": "27 retained"},
+          {"row": 5, "label": "83 added"},
+          {"row": 9, "label": "44 not on current list"}
+        ]
       },
-      {
-        "field": "taxon_group",
-        "type": "nominal",
-        "title": "Group"
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#17362f",
+        "clip": false
       },
-      {
-        "field": "priority_change",
-        "type": "nominal",
-        "title": "Status"
+      "encoding": {
+        "x": {"value": 570},
+        "y": {
+          "field": "row",
+          "type": "ordinal",
+          "sort": "ascending",
+          "axis": null
+        },
+        "text": {"field": "label"}
       }
-    ]
-  },
+    }
+  ],
   "config": {
     "font": "Source Sans 3",
     "axis": {
