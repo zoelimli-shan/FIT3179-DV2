@@ -61,13 +61,96 @@
     </section>
 
     <section id="state-lists" aria-labelledby="state-lists-title">
-      <h2 id="state-lists-title">4. State listings and mapped funding have different patterns</h2>
-      <p class="section-intro">The Environment Protection and Biodiversity Conservation (EPBC) Act lists threatened species in each state. Plants account for about 71% of WA’s state entries and 65% of NSW’s. Comparing the share of these listings with mapped priority-species funding reveals the largest gap for NSW. That comparison describes the pattern of two measures; the outcome evidence comes next.</p>
+      <h2 id="state-lists-title">4. Funding shares don’t match listing shares</h2>
+
+      <p class="section-intro">
+        New South Wales has 24.6% of the state-based threatened-species
+        listings counted here, but 14.5% of the listed funding in this
+        analysis. Tasmania shows the reverse: 7.3% of listings and
+        15.3% of funding. Listings give a rough indication of
+        conservation need, so comparing them with funding puts the
+        dollar totals in context.
+      </p>
+
+      <p>
+        Here, a listing means a nationally threatened species recorded
+        in a state or territory under the Environment Protection and
+        Biodiversity Conservation (EPBC) Act. Species found in several
+        states are counted in each one.
+      </p>
+
+      <figure class="viz"
+              aria-label="State shares of threatened-species listings and listed funding">
+        <figcaption>
+          <strong>State shares of threatened-species listings and listed funding</strong>
+          <span>
+            Each state’s share of listings compared with its share of
+            funding across 76 single-state priority-species projects.
+          </span>
+        </figcaption>
+
+        <div id="funding_listing_dumbbell"></div>
+
+        <p class="chart-finding">
+          NSW’s funding share is about 10 percentage points below its
+          listing share, while Tasmania’s is 8 points above.
+        </p>
+
+        <p>
+          <small>
+            This comparison covers single-state priority-species
+            projects only. Projects are selected using other criteria
+            besides species counts, so these gaps alone don’t show
+            whether funding is fair or adequate.
+          </small>
+        </p>
+      </figure>
+
+      <p class="bridge">
+        The mix of listed species also differs between states.
+      </p>
+
       <div class="figure-pair context">
-        <figure class="viz" aria-label="Plant share of threatened listings by state"><figcaption><strong>Plant share of threatened listings by state</strong><span>Equal-sized tiles show the plant share of state listings.</span></figcaption><div id="plant_share_tile_map"></div></figure>
-        <figure class="viz" aria-label="Threatened listings by state and species group"><figcaption><strong>Threatened listings by state and species group</strong><span>Darker cells contain more species listed in that state and group.</span></figcaption><div id="state_group_heatmap"></div><p class="chart-finding">NSW has 469 listed plant entries.</p></figure>
+        <figure class="viz"
+                aria-label="Plant share of threatened-species listings by state">
+          <figcaption>
+            <strong>Plant share of threatened-species listings by state</strong>
+            <span>
+              Equal-sized tiles show the percentage of each state’s listings
+              that are plants.
+            </span>
+          </figcaption>
+
+          <div id="plant_share_tile_map"></div>
+
+          <p class="chart-finding">
+            Plants account for about 71% of listings in Western Australia
+            and 65% in New South Wales.
+          </p>
+        </figure>
+
+        <figure class="viz"
+                aria-label="Threatened-species listings by state and species group">
+          <figcaption>
+            <strong>Threatened-species listings by state and species group</strong>
+            <span>
+              Darker cells show more nationally listed species recorded
+              in that state and group.
+            </span>
+          </figcaption>
+
+          <div id="state_group_heatmap"></div>
+
+          <p class="chart-finding">
+            New South Wales has 469 listed plant entries.
+          </p>
+        </figure>
       </div>
-      <figure class="viz" aria-label="State shares of threatened listings and mapped funding"><figcaption><strong>State shares of threatened listings and mapped funding</strong><span>Compare each state’s listing share with the funding share from 76 mapped entries.</span></figcaption><div id="funding_listing_dumbbell"></div></figure>
+
+      <p class="bridge">
+        Funding shows where effort is directed. The next section examines
+        the evidence of improvement among earlier priorities.
+      </p>
     </section>
 
     <section id="evidence" aria-labelledby="evidence-title">
