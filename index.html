@@ -13,7 +13,7 @@
 </head>
 <body>
   <header class="hero">
-    <p class="eyebrow"><svg class="leaf-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 25C7 13 13 6 26 5c0 13-7 20-20 20Zm0 0c5-7 10-11 18-16" /></svg> Threatened wildlife · Australia</p>
+    <p class="eyebrow"><svg class="leaf-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 25C7 13 6 26 5c0 13-7 20-20 20Zm0 0c5-7 10-11 18-16" /></svg> Threatened wildlife · Australia</p>
     <h1>Australia's Conservation Choices</h1>
     <p class="lead">A national score for monitored threatened populations stood at 42% of its 2000 level by 2022. Australia's priority lists have changed and millions of dollars have been listed for projects. Where is that effort focused, and what evidence of recovery can we see? These records show where effort was directed. Continued measurements will show whether threatened populations improve under the newer priorities.</p>
     <div class="key-numbers" aria-label="Key findings">
@@ -38,8 +38,7 @@
     <section id="priorities" aria-labelledby="priorities-title">
       <h2 id="priorities-title">2. Three in four newer priorities were absent from the earlier list</h2>
       <div class="story-row">
-        <div class="story-copy"><p>The 2022–2032 list contains 110 entries, including species and some named populations. Four groups entered the newer priority list. Of its entries, 83 were absent from the 2015–2020 priority list and only 27 carried over. Plants numbered 30 on each list, yet only three appeared on both. The lists show where national attention shifted; funding shows how some of that attention was put into projects.</p></div>
-        <figure class="viz" aria-label="Priority entries by species group and list"><figcaption><strong>Priority entries by species group and list</strong><span>Darker cells contain more entries in that group and period.</span></figcaption><div id="priority_chart"></div></figure>
+      <div class="story-copy"><p>The 2015–2020 Threatened Species Strategy set 71 priorities for recovery. The 2022–2032 Threatened Species Action Plan names 110, including some named populations, and four species groups appear only on the newer list. Of those 110 entries, 83 were absent from the earlier list, and just 27 of the original 71 carried over. Each list names 30 plants, but only three appear on both. So where is project funding directed?</p></div>        <figure class="viz" aria-label="Priority entries by species group and list"><figcaption><strong>Priority entries by species group and list</strong><span>Darker cells contain more entries in that group and period.</span></figcaption><div id="priority_chart"></div></figure>
       </div>
       <figure class="viz" aria-label="Changes between the two priority lists"><figcaption><strong>Changes between the two priority lists</strong><span>Each square represents one entry across the two lists.</span></figcaption><div id="priority_waffle"></div></figure>
       <p class="insight">The two lists contain 154 distinct entries: 27 retained, 83 added and 44 absent from the newer list.</p>
@@ -48,7 +47,7 @@
     <section id="investment" aria-labelledby="investment-title">
       <h2 id="investment-title">3. Priority places received AUD 56 million of AUD 147 million</h2>
       <div class="story-row">
-        <div class="story-copy"><p>Saving Native Species Phase 1 has 161 entries in the seven project streams used here, totalling AUD 147.43 million in listed funding. Priority places make up the largest amount, at AUD 56.08 million. The state views focus on projects assigned to one state, revealing how the total changes by purpose and location.</p></div>
+        <div class="story-copy"><p>Saving Native Species Phase 1 has 161 entries in the seven project streams used here, totalling AUD 147.43 million in listed funding. Priority places make up the largest amount, at AUD 56.08 million. The project-count and flow maps use the 143 entries assigned to one state. The priority-species map and later funding comparison use the 76 single-state entries in that stream.</p></div>
         <figure class="viz" aria-label="Listed funding by project stream"><figcaption><strong>Listed funding by project stream</strong><span>Bars start at zero and show listed funding in AUD.</span></figcaption><div id="funding_chart"></div></figure>
       </div>
       <figure class="viz" aria-label="Funding shares by state and purpose"><figcaption><strong>Funding shares by state and purpose</strong><span>Column width shows each state’s share; colour shows funding purpose.</span></figcaption><div id="funding_mosaic"></div><p class="chart-finding">Queensland holds the widest funding column.</p></figure>
@@ -63,48 +62,52 @@
     <section id="state-lists" aria-labelledby="state-lists-title">
       <h2 id="state-lists-title">4. Funding shares don’t match listing shares</h2>
 
-      <p class="section-intro">
-        New South Wales has 24.6% of the state-based threatened-species
-        listings counted here, but 14.5% of the listed funding in this
-        analysis. Tasmania shows the reverse: 7.3% of listings and
-        15.3% of funding. Listings give a rough indication of
-        conservation need, so comparing them with funding puts the
-        dollar totals in context.
-      </p>
+      <div class="story-row">
+        <div class="story-copy">
+          <p class="section-intro">
+            New South Wales has 24.6% of the state-based threatened-species
+            listings counted here, but 14.5% of the listed funding in this
+            analysis. Tasmania shows the reverse: 7.3% of listings and
+            15.3% of funding. Listings give a rough indication of
+            conservation need, so comparing them with funding puts the
+            dollar totals in context.
+          </p>
 
-      <p>
-        Here, a listing means a nationally threatened species recorded
-        in a state or territory under the Environment Protection and
-        Biodiversity Conservation (EPBC) Act. Species found in several
-        states are counted in each one.
-      </p>
+          <p>
+            Here, a listing means a nationally threatened species recorded
+            in a state or territory under the Environment Protection and
+            Biodiversity Conservation (EPBC) Act. Species found in several
+            states are counted in each one.
+          </p>
+        </div>
 
-      <figure class="viz"
-              aria-label="State shares of threatened-species listings and listed funding">
-        <figcaption>
-          <strong>State shares of threatened-species listings and listed funding</strong>
-          <span>
-            Each state’s share of listings compared with its share of
-            funding across 76 single-state priority-species projects.
-          </span>
-        </figcaption>
+        <figure class="viz"
+                aria-label="State shares of threatened-species listings and listed funding">
+          <figcaption>
+            <strong>State shares of threatened-species listings and listed funding</strong>
+            <span>
+              Each state’s share of listings compared with its share of
+              funding across 76 single-state priority-species projects.
+            </span>
+          </figcaption>
 
-        <div id="funding_listing_dumbbell"></div>
+          <div id="funding_listing_dumbbell"></div>
 
-        <p class="chart-finding">
-          NSW’s funding share is about 10 percentage points below its
-          listing share, while Tasmania’s is 8 points above.
-        </p>
+          <p class="chart-finding">
+            NSW’s funding share is about 10 percentage points below its
+            listing share, while Tasmania’s is 8 points above.
+          </p>
 
-        <p>
-          <small>
-            This comparison covers single-state priority-species
-            projects only. Projects are selected using other criteria
-            besides species counts, so these gaps alone don’t show
-            whether funding is fair or adequate.
-          </small>
-        </p>
-      </figure>
+          <p>
+            <small>
+              This comparison covers single-state priority-species
+              projects only. Projects are selected using other criteria
+              besides species counts, so these gaps alone don’t show
+              whether funding is fair or adequate.
+            </small>
+          </p>
+        </figure>
+      </div>
 
       <p class="bridge">
         The mix of listed species also differs between states.
@@ -160,13 +163,23 @@
         <figure class="viz viz--compact" aria-label="Year Five outcomes and later priority status"><figcaption><strong>Year Five outcomes and later priority status</strong><span>Each ribbon represents entries with one outcome and later list status.</span></figcaption><div id="outcome_alluvial"></div></figure>
       </div>
       <p class="bridge">A longer record brings the outcome question down to one population.</p>
-      <p>The northern hairy-nosed wombat provides a separate view of change over decades. Its recovery plan plots selected population estimates from about 35 in 1982 to about 315 in 2021. Read alongside the mixed Year Five results, this series shows why repeated measurements matter when judging progress over time.</p>
-      <figure class="viz" aria-label="Northern hairy-nosed wombat population estimates, 1982–2021"><figcaption><strong>Northern hairy-nosed wombat population estimates, 1982–2021</strong><span>Points show selected estimates reported in the recovery plan.</span></figcaption><div id="wombat_population_chart"></div></figure>
+<div class="story-row">
+  <div class="story-copy">
+    <p>The northern hairy-nosed wombat provides a separate view of change over decades. Its recovery plan plots selected population estimates from about 35 in 1982 to about 315 in 2021. Read alongside the mixed Year Five results, this series shows why repeated measurements matter when judging progress over time.</p>
+  </div>
+  <figure class="viz" aria-label="Northern hairy-nosed wombat population estimates, 1982–2021">
+    <figcaption>
+      <strong>Northern hairy-nosed wombat population estimates, 1982–2021</strong>
+      <span>Points show selected estimates reported in the recovery plan.</span>
+    </figcaption>
+    <div id="wombat_population_chart"></div>
+  </figure>
+</div>
     </section>
 
     <section id="takeaway" aria-labelledby="takeaway-title">
-      <h2 id="takeaway-title">Conclusion</h2>
-      <p>Monitored populations declined, priority lists changed and listed funding varied by stream and state. Earlier outcomes were mixed, while the wombat estimates show that local recovery is possible. These sources cover different species and periods, so they leave the results of the 2022–2032 plan open for future measurement.</p>
+      <h2 id="takeaway-title">The ending depends on what we keep counting</h2>
+      <p>By 2022, the score for monitored threatened populations stood at 42% of its 2000 level. Australia has redrawn its priority list and listed funding for new projects. The earlier Year Five assessment found that 24 of 71 priorities had improving trajectories. Those results cannot tell us whether the newer plan is working. The northern hairy-nosed wombat offers a longer view. Its estimated population rose from about 35 in 1982 to about 315 in 2021, despite losing roughly a tenth of its population to dingoes from 2000 to 2001. Continued monitoring will help show whether populations on the current priority list improve.</p>
     </section>
   </main>
 

@@ -26,6 +26,7 @@
         "labelFontSize": 14,
         "labelColor": "#17362f",
         "labelAngle": 0,
+        "labelAlign": "left",
         "labelPadding": 16,
         "labelLimit": 140
       }

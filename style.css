@@ -20,6 +20,14 @@ body {
   padding: 34px 24px 64px;
 }
 
+.hero,
+main,
+footer {
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
 h1, h2, h3 {
   font-family: "Newsreader", Georgia, serif;
   letter-spacing: -0.02em;
@@ -101,13 +109,16 @@ section {
 
 .story-row {
   display: grid;
-  grid-template-columns: minmax(210px, 260px) minmax(0, 1fr);
-  gap: 26px;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 32px;
   align-items: start;
   margin: 20px 0 26px;
 }
 
 .story-copy p { margin: 0; max-width: 31ch; }
+.story-copy p + p {
+  margin-top: 14px;
+}
 .story-row > * { min-width: 0; }
 
 .viz {
@@ -118,7 +129,16 @@ section {
 }
 
 .story-row .viz { margin: 0; }
+
+.viz > div[id] {
+  width: 100%;
+  text-align: center;
+}
+
 .viz--compact { max-width: 490px; }
+#evidence .story-row .viz--compact {
+  justify-self: center;
+}
 
 .figure-pair.maps {
   display: grid;
@@ -133,8 +153,9 @@ section {
 
 .viz figcaption {
   display: block;
-  max-width: 60ch;
-  margin-bottom: 10px;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto 10px;
 }
 
 .viz figcaption strong {
@@ -157,6 +178,13 @@ section {
   margin: 10px 0 0;
   font-size: 16px;
   line-height: 1.32;
+}
+
+.viz > p {
+  width: 100%;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .vega-embed { max-width: 100%; }

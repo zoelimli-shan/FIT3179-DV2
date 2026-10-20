@@ -50,7 +50,8 @@
               "#66509a",
               "#9a5c2f"
             ]
-          }
+          },
+          "legend": null
         },
         "tooltip": [
           {
