@@ -24,7 +24,7 @@ if (typeof vegaEmbed !== "function") {
   console.error("Vega-Embed did not load from the CDN.");
 } else {
   for (const [id, file] of charts) {
-    vegaEmbed(`#${id}`, file, {actions: false}).catch(error => {
+    vegaEmbed(`#${id}`, file, {actions: true}).catch(error => {
       console.error(`Failed to render ${id}:`, error);
       document.getElementById(id).textContent = "Chart could not load. Open the page through a local server and check the browser console.";
     });

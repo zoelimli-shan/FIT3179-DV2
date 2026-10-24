@@ -75,9 +75,9 @@
     {
       "data": {
         "values": [
-          {"row": 1, "label": "27 retained"},
-          {"row": 5, "label": "83 added"},
-          {"row": 9, "label": "44 not on current list"}
+          {"row": 1, "label": "27 retained (17.5%)"},
+          {"row": 5, "label": "83 added (53.9%)"},
+          {"row": 9, "label": "44 not on current list (28.6%)"}
         ]
       },
       "mark": {

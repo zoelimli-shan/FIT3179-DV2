@@ -215,7 +215,9 @@
           "title": null,
           "axis": {
             "grid": false,
-            "labelFontSize": 13
+            "labelFontSize": 13,
+            "labelLimit": 240,
+            "labelExpr": "{'NSW':'New South Wales','TAS':'Tasmania','VIC':'Victoria','SA':'South Australia','NT':'Northern Territory','WA':'Western Australia','ACT':'Australian Capital Territory','QLD':'Queensland'}[datum.label]"
           }
         },
         "tooltip": [
