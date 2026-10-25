@@ -10,8 +10,8 @@
   "config": {
     "font": "Source Sans 3",
     "axis": {
-      "labelFontSize": 12,
-      "titleFontSize": 13,
+      "labelFontSize": 14,
+      "titleFontSize": 15,
       "labelFont": "Source Sans 3",
       "titleFont": "Source Sans 3",
       "labelColor": "#52635a",
@@ -59,7 +59,12 @@
             "TAS",
             "ACT"
           ],
-          "title": "State or territory"
+          "title": "State or territory",
+          "axis": {
+            "labelAngle": -90,
+            "labelLimit": 250,
+            "labelExpr": "datum.label == 'WA' ? 'Western Australia' : datum.label == 'NT' ? 'Northern Territory' : datum.label == 'SA' ? 'South Australia' : datum.label == 'QLD' ? 'Queensland' : datum.label == 'NSW' ? 'New South Wales' : datum.label == 'VIC' ? 'Victoria' : datum.label == 'TAS' ? 'Tasmania' : datum.label == 'ACT' ? 'Australian Capital Territory' : datum.label"
+          }
         },
         "y": {
           "field": "taxon_group",

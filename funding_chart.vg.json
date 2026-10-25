@@ -49,11 +49,20 @@
         "y": {
           "field": "funding_stream",
           "type": "nominal",
-          "sort": "-x",
+          "sort": [
+            "priority_places",
+            "priority_species",
+            "yellow_crazy_ants",
+            "threat_innovation",
+            "gamba_grass",
+            "tracking_trajectories",
+            "emergency_action"
+          ],
           "title": "Funding stream",
           "axis": {
             "labelExpr": "replace(datum.label, /_/g, ' ')",
-            "labelLimit": 220
+            "labelLimit": 220,
+            "labelFontSize": 14
           }
         },
         "x": {
@@ -116,7 +125,15 @@
         "y": {
           "field": "funding_stream",
           "type": "nominal",
-          "sort": "-x"
+          "sort": [
+            "priority_places",
+            "priority_species",
+            "yellow_crazy_ants",
+            "threat_innovation",
+            "gamba_grass",
+            "tracking_trajectories",
+            "emergency_action"
+          ]
         },
         "text": {
           "field": "label",

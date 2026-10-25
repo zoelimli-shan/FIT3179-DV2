@@ -64,16 +64,25 @@
       }
     },
     {
+      "transform": [
+        {
+          "calculate": "datum.state_code == 'ACT' ? 'Australian Capital|Territory' : datum.state_name",
+          "as": "tile_label"
+        }
+      ],
       "mark": {
         "type": "text",
-        "fontSize": 17,
+        "fontSize": 14,
         "fontWeight": "bold",
-        "dy": -10,
+        "lineBreak": "|",
+        "lineHeight": 16,
+        "baseline": "middle",
+        "dy": -13,
         "color": "#173f37"
       },
       "encoding": {
         "text": {
-          "field": "state_code",
+          "field": "tile_label",
           "type": "nominal"
         }
       }
@@ -82,7 +91,7 @@
       "mark": {
         "type": "text",
         "fontSize": 14,
-        "dy": 15,
+        "dy": 27,
         "color": "#173f37"
       },
       "encoding": {

@@ -116,7 +116,7 @@
           {
             "longitude": 144,
             "latitude": -23,
-            "label": "QLD AUD 5.04m"
+            "label": "Queensland|AUD 5.04 million"
           }
         ]
       },
@@ -124,6 +124,10 @@
         "type": "text",
         "fontSize": 12,
         "fontWeight": "bold",
+        "lineBreak": "|",
+        "lineHeight": 16,
+        "align": "center",
+        "baseline": "middle",
         "color": "#ffffff"
       },
       "encoding": {

@@ -50,35 +50,25 @@ a:focus-visible { outline: 3px solid var(--funding); outline-offset: 3px; }
 
 .hero { border-top: 5px solid var(--recovery); padding-top: 24px; }
 
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 0 14px;
-  color: var(--recovery);
-  font: 700 13px/1.2 "Source Sans 3", Arial, sans-serif;
-  letter-spacing: .085em;
-  text-transform: uppercase;
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 32px;
+  align-items: start;
+  margin: 26px 0 42px;
 }
 
-.leaf-icon {
-  width: 22px;
-  height: 22px;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 2;
-  flex: none;
-}
+.hero-layout > * { min-width: 0; }
+.hero-layout .lead { margin: 0; }
 
 .lead { font-size: 20px; line-height: 1.34; max-width: 60ch; }
 
 .key-numbers {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
   gap: 16px;
-  margin: 30px 0 42px;
+  margin: 0;
 }
 
 .key-numbers div {
@@ -156,6 +146,10 @@ section {
   width: 100%;
   max-width: 620px;
   margin: 0 auto 10px;
+}
+
+.viz--waffle figcaption {
+  max-width: 730px;
 }
 
 .viz figcaption strong {
@@ -248,9 +242,16 @@ footer .footer-heading {
   .figure-pair.maps .viz { max-width: 900px; margin: 20px auto 30px; }
 }
 
+@media (max-width: 900px) {
+  .hero-layout { grid-template-columns: 1fr; }
+  .hero-layout .key-numbers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 700px) {
   body { padding: 22px 14px 48px; font-size: 17px; }
-  .key-numbers { grid-template-columns: 1fr; }
+  .hero-layout .key-numbers { grid-template-columns: 1fr; }
   .key-numbers div { padding: 13px 15px; }
   h3 { font-size: 20px; }
   .source-list { grid-template-columns: 1fr; }

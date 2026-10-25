@@ -96,7 +96,7 @@
           {
             "longitude": 145,
             "latitude": -23,
-            "label": "QLD 28"
+            "label": "Queensland|28 entries"
           }
         ]
       },
@@ -106,6 +106,8 @@
         "fontWeight": "bold",
         "align": "left",
         "dx": 26,
+        "lineBreak": "|",
+        "lineHeight": 16,
         "color": "#17362f"
       },
       "encoding": {

@@ -198,7 +198,7 @@
         "type": "text",
         "align": "right",
         "dx": -12,
-        "dy": -17,
+        "dy": 18,
         "fontSize": 12,
         "fontWeight": "bold",
         "color": "#9a5c2f"
