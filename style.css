@@ -125,6 +125,10 @@ section {
   text-align: center;
 }
 
+#funding_mosaic {
+  margin-top: -16px;
+}
+
 .viz--compact { max-width: 490px; }
 #evidence .story-row .viz--compact {
   justify-self: center;
@@ -146,6 +150,10 @@ section {
   width: 100%;
   max-width: 620px;
   margin: 0 auto 10px;
+}
+
+.viz--waffle {
+  max-width: 730px;
 }
 
 .viz--waffle figcaption {
@@ -191,6 +199,11 @@ section {
 }
 
 .bridge { font-weight: 600; color: var(--recovery); }
+
+#priorities .insight + .bridge {
+  margin-top: 32px;
+}
+
 .section-intro { margin: 0 0 22px; }
 
 footer {
