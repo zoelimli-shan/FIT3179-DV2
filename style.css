@@ -1,3 +1,9 @@
+
+/* ============================================
+   AUSTRALIA'S CONSERVATION CHOICES
+   UPDATED STYLESHEET — MOSAIC LEFT, MAP LAYOUT
+   ============================================ */
+
 :root {
   --paper: #f7f7f1;
   --ink: #17362f;
@@ -7,12 +13,17 @@
   --listing: #66509a;
   --recovery: #176b50;
   --accent: #9a5c2f;
+  --reading-width: 42ch;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
+/* GLOBAL */
 
 body {
-  font: 400 18px/1.36 "Source Sans 3", Arial, sans-serif;
+  font: 400 18px/1.5 "Source Sans 3", Arial, sans-serif;
   color: var(--ink);
   background: var(--paper);
   max-width: 1200px;
@@ -28,7 +39,32 @@ footer {
   margin-inline: auto;
 }
 
-h1, h2, h3 {
+p {
+  max-width: var(--reading-width);
+  margin: 14px 0;
+  line-height: 1.55;
+}
+
+small {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+a {
+  color: var(--recovery);
+  text-underline-offset: 3px;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--funding);
+  outline-offset: 3px;
+}
+
+/* HEADINGS */
+
+h1,
+h2 {
   font-family: "Newsreader", Georgia, serif;
   letter-spacing: -0.02em;
   line-height: 1.17;
@@ -38,17 +74,42 @@ h1 {
   font-size: clamp(30px, 2.8vw, 38px);
   font-weight: 700;
   margin: 0 0 14px;
-  max-width: none;
 }
 
-h2 { font-size: clamp(25px, 2.7vw, 31px); font-weight: 600; margin: 0 0 18px; max-width: 31ch; }
-h3 { font-size: 22px; font-weight: 600; margin: 35px 0 12px; }
-p { max-width: 60ch; margin: 14px 0; }
-small { color: var(--muted); font-size: 14px; line-height: 1.35; }
-a { color: var(--recovery); text-underline-offset: 3px; }
-a:focus-visible { outline: 3px solid var(--funding); outline-offset: 3px; }
+h2 {
+  font-size: clamp(25px, 2.7vw, 31px);
+  font-weight: 600;
+  margin: 0 0 18px;
+  max-width: 31ch;
+}
 
-.hero { border-top: 5px solid var(--recovery); padding-top: 24px; }
+/* Stronger chapter headings, without changing the hero or footer */
+main section h2 {
+  font-size: clamp(32px, 3.2vw, 36px);
+  font-weight: 700;
+  line-height: 1.16;
+  max-width: 31ch;
+}
+
+main section h3 {
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-size: clamp(21px, 2vw, 23px);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: normal;
+  margin: 2.5rem 0 1rem;
+}
+
+main section h2 + h3 {
+  margin-top: 1.4rem;
+}
+
+/* HERO */
+
+.hero {
+  border-top: 5px solid var(--recovery);
+  padding-top: 24px;
+}
 
 .hero-layout {
   display: grid;
@@ -58,10 +119,21 @@ a:focus-visible { outline: 3px solid var(--funding); outline-offset: 3px; }
   margin: 26px 0 42px;
 }
 
-.hero-layout > * { min-width: 0; }
-.hero-layout .lead { margin: 0; }
+.hero-layout > * {
+  min-width: 0;
+}
 
-.lead { font-size: 20px; line-height: 1.34; max-width: 60ch; }
+.hero-layout .lead {
+  margin: 0;
+}
+
+.lead {
+  font-size: 20px;
+  line-height: 1.4;
+  max-width: var(--reading-width);
+}
+
+/* KEY NUMBERS */
 
 .key-numbers {
   display: grid;
@@ -91,120 +163,312 @@ a:focus-visible { outline: 3px solid var(--funding); outline-offset: 3px; }
   margin-top: 6px;
 }
 
-section {
-  border-top: 1px solid var(--line);
-  padding-top: 32px;
-  margin-top: 44px;
+/* MAIN SECTIONS */
+
+main section {
+  background: #fff;
+  border: 1px solid #e6e9e2;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(23, 54, 47, 0.05);
+  padding: clamp(20px, 2.6vw, 32px);
+  margin-top: 32px;
 }
+
+/* GENERAL STORY ROW */
 
 .story-row {
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  gap: 32px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.55fr);
+  gap: clamp(1.25rem, 3vw, 2.25rem);
   align-items: start;
   margin: 20px 0 26px;
 }
 
-.story-copy p { margin: 0; max-width: 31ch; }
-.story-copy p + p {
-  margin-top: 14px;
+.story-row > *,
+.story-copy {
+  min-width: 0;
 }
-.story-row > * { min-width: 0; }
 
-.viz {
+.story-copy p {
+  max-width: var(--reading-width);
+  margin: 0 0 1rem;
+  line-height: 1.55;
+}
+
+.story-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.story-row figure.viz {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  justify-self: stretch;
+}
+
+/* CHART CONTAINERS */
+
+figure.viz {
   width: 100%;
   max-width: 900px;
   min-width: 0;
   margin: 26px auto 34px;
 }
 
-.story-row .viz { margin: 0; }
-
-.viz > div[id] {
-  width: 100%;
-  text-align: center;
-}
-
-#funding_mosaic {
-  margin-top: -16px;
-}
-
-.viz--compact { max-width: 490px; }
-#evidence .story-row .viz--compact {
-  justify-self: center;
-}
-
-.figure-pair.maps {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  align-items: start;
-}
-
-.figure-pair.maps .viz { max-width: none; margin: 12px 0 28px; }
-.figure-pair.context { max-width: 900px; margin: 0 auto; }
-.figure-pair.context .viz { max-width: none; margin: 20px 0 34px; }
-
-.viz figcaption {
+figure.viz figcaption {
   display: block;
   width: 100%;
+  max-width: 100%;
+  margin: 0 0 10px;
+  text-align: left;
+}
+
+figure.viz figcaption strong {
+  display: block;
+  font: 700 17px/1.3 "Source Sans 3", Arial, sans-serif;
+}
+
+figure.viz figcaption span {
+  display: block;
+  max-width: var(--reading-width);
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.45;
+  margin-top: 3px;
+}
+
+figure.viz > div[id] {
+  width: 100%;
+  min-width: 0;
+  text-align: center;
+  margin-top: 0;
+}
+
+figure.viz > p,
+figure.viz > p.chart-finding {
+  width: 100%;
+  max-width: var(--reading-width);
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+figure.viz > p small {
+  display: inline;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.vega-embed {
+  max-width: 100%;
+}
+
+.vega-embed svg,
+.vega-embed canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* SPECIAL CHARTS */
+
+#challenge > figure.viz {
   max-width: 620px;
-  margin: 0 auto 10px;
+}
+
+.viz--compact {
+  max-width: 490px;
 }
 
 .viz--waffle {
   max-width: 730px;
 }
 
-.viz--waffle figcaption {
-  max-width: 730px;
-}
-
-.viz figcaption strong {
-  display: block;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.22;
-}
-
-.viz figcaption span {
-  display: block;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.3;
-  margin-top: 3px;
-}
-
-.chart-finding {
-  max-width: 60ch;
-  margin: 10px 0 0;
-  font-size: 16px;
-  line-height: 1.32;
-}
-
-.viz > p {
+#priorities > .insight {
   width: 100%;
-  max-width: 620px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: var(--reading-width);
+  margin: 14px auto 0;
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 400;
 }
 
-.vega-embed { max-width: 100%; }
-.vega-embed svg, .vega-embed canvas { max-width: 100%; height: auto; }
+/* FUNDING EXPLANATIONS */
 
-.insight {
-  font-weight: 600;
-  border-left: 4px solid var(--recovery);
-  padding: 3px 0 3px 14px;
+#investment > p {
+  max-width: var(--reading-width);
 }
 
-.bridge { font-weight: 600; color: var(--recovery); }
-
-#priorities .insight + .bridge {
-  margin-top: 32px;
+.story-context {
+  max-width: var(--reading-width);
+  margin: 1.5rem 0 2rem;
 }
 
-.section-intro { margin: 0 0 22px; }
+.story-context p {
+  max-width: var(--reading-width);
+  margin: 0 0 0.9rem;
+  line-height: 1.55;
+}
+
+.story-context p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   FUNDING MOSAIC — LEFT-HAND LAYOUT
+   ============================================ */
+
+/*
+   Mosaic occupies the wider left column.
+   Explanation occupies the right column.
+
+   HTML must use:
+   class="story-row story-row--mosaic"
+*/
+
+#investment .story-row--mosaic {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.8fr)
+    minmax(0, 0.8fr);
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  align-items: start;
+  margin: 24px 0 36px;
+}
+
+#investment .story-row--mosaic > * {
+  min-width: 0;
+}
+
+#investment .story-row--mosaic .story-copy p {
+  max-width: var(--reading-width);
+  margin: 0 0 1rem;
+  line-height: 1.55;
+}
+
+#investment .story-row--mosaic .story-copy p:last-child {
+  margin-bottom: 0;
+}
+
+#investment .story-row--mosaic figure.viz--mosaic {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  justify-self: stretch;
+}
+
+#investment .story-row--mosaic figure.viz--mosaic figcaption {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 12px;
+  text-align: left;
+}
+
+#investment .story-row--mosaic figure.viz--mosaic figcaption span {
+  max-width: var(--reading-width);
+}
+
+#investment .story-row--mosaic #funding_mosaic {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0;
+}
+
+/* GEOGRAPHIC COMPARISON — THREE CONSISTENT MAP ROWS */
+
+#investment .story-row--map {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.55fr);
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  align-items: start;
+  margin: 22px 0 38px;
+}
+
+#investment .story-row--map .story-copy p {
+  max-width: var(--reading-width);
+}
+
+#investment .story-row--map figure.viz {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+}
+
+/* A quiet visual break separates each geographic question. */
+#investment .story-row--map + .story-row--map {
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+/* PLANT-SHARE MAP */
+
+.story-row--tile {
+  margin: 1rem 0 1.75rem;
+}
+
+.story-row--tile figure.viz {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* WIDER COMPLEX CHARTS */
+
+figure.viz--trends,
+figure.viz--heatmap,
+figure.viz--flow {
+  width: 100%;
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+figure.viz--trends figcaption,
+figure.viz--heatmap figcaption,
+figure.viz--flow figcaption,
+figure.viz--alluvial figcaption {
+  max-width: 100%;
+  margin-left: 0;
+}
+
+#challenge > figure.viz--trends {
+  max-width: 960px;
+}
+
+.story-row figure.viz--alluvial {
+  width: 100%;
+  max-width: none;
+}
+
+#tsx_group_trends,
+#state_group_heatmap {
+  max-width: 100%;
+}
+
+.section-intro {
+  max-width: var(--reading-width);
+  margin: 0 0 22px;
+}
+
+/* CONCLUSION */
+
+.takeaway-copy {
+  max-width: var(--reading-width);
+}
+
+.takeaway-copy p {
+  max-width: var(--reading-width);
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.takeaway-copy p:last-child {
+  margin-bottom: 0;
+}
+
+/* FOOTER */
 
 footer {
   border-top: 1px solid var(--line);
@@ -212,19 +476,39 @@ footer {
   padding-top: 20px;
 }
 
-footer p { max-width: 100%; margin: 0; }
-footer small { display: block; max-width: 100ch; }
+footer p {
+  max-width: 100%;
+  margin: 0;
+}
+
+footer small {
+  display: block;
+  max-width: 100ch;
+}
+
 footer p + p {
   margin-top: 12px;
 }
 
 footer .footer-heading {
   margin: 24px 0 12px;
-  font-family: "Source Sans 3", Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.3;
+  font: 700 16px/1.3 "Source Sans 3", Arial, sans-serif;
   letter-spacing: normal;
+}
+
+.methodology-notes {
+  margin: 2rem 0;
+}
+
+.methodology-notes summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.75rem 0;
+}
+
+.methodology-notes li {
+  margin-bottom: 0.65rem;
+  line-height: 1.5;
 }
 
 .source-list {
@@ -247,31 +531,175 @@ footer .footer-heading {
   overflow-wrap: anywhere;
 }
 
-@media (max-width: 1150px) {
-  .story-row { grid-template-columns: 1fr; gap: 14px; }
-  .story-copy p { max-width: 60ch; }
-  .story-row .viz { margin: 0 auto; }
-  .figure-pair.maps { grid-template-columns: 1fr; }
-  .figure-pair.maps .viz { max-width: 900px; margin: 20px auto 30px; }
-}
+/* ============================================
+   RESPONSIVE LAYOUT
+   ============================================ */
 
-@media (max-width: 900px) {
-  .hero-layout { grid-template-columns: 1fr; }
-  .hero-layout .key-numbers {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+/* Make the mosaic full-width if the right
+   column becomes too narrow */
+
+@media (max-width: 1000px) {
+  #investment .story-row--mosaic {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  #investment .story-row--mosaic figure.viz--mosaic {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 700px) {
-  body { padding: 22px 14px 48px; font-size: 17px; }
-  .hero-layout .key-numbers { grid-template-columns: 1fr; }
-  .key-numbers div { padding: 13px 15px; }
-  h3 { font-size: 20px; }
-  .source-list { grid-template-columns: 1fr; }
+/* Stack each text-and-map row on narrower screens. */
+
+@media (max-width: 1000px) {
+  #investment .story-row--map {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  #investment .story-row--map figure.viz {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+  }
 }
 
+/* Tablet */
+
+@media (max-width: 800px) {
+  .story-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .story-row figure.viz {
+    margin: 0 auto;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-layout .key-numbers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  figure.viz--trends,
+  figure.viz--heatmap,
+  figure.viz--flow {
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  body {
+    padding: 22px 14px 48px;
+    font-size: 17px;
+  }
+
+  .lead {
+    font-size: 18px;
+  }
+
+  .hero-layout .key-numbers {
+    grid-template-columns: 1fr;
+  }
+
+  .key-numbers div {
+    padding: 13px 15px;
+  }
+
+  main section h3 {
+    font-size: 20px;
+  }
+
+  .source-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PRINT / PDF EXPORT */
+
 @media print {
-  body { overflow: visible; padding: 0; }
-  .viz { break-inside: avoid; }
-  .hero, section { break-inside: auto; }
+  body {
+    overflow: visible;
+    padding: 0;
+  }
+
+  .hero,
+  main section {
+    break-inside: auto;
+  }
+
+  .story-row,
+  figure.viz {
+    break-inside: avoid;
+  }
+}
+
+/* ============================================
+   REDUCE FUNDING MOSAIC TITLE-CHART SPACING
+   ============================================ */
+
+/* Reduce space below the chart description */
+#investment .viz--mosaic figcaption {
+  margin-bottom: 2px;
+}
+
+/* Remove extra margin above the chart container */
+#investment .viz--mosaic > #funding_mosaic {
+  margin-top: 0;
+}
+
+/* Remove unnecessary spacing around Vega output */
+#funding_mosaic .vega-embed {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* ============================================
+   DISTINCT UNNUMBERED CONCLUSION
+   Only #takeaway is affected.
+   ============================================ */
+
+#takeaway {
+  background: #e8eee7;
+  border: 1px solid #c4d7c8;
+  border-left: 5px solid var(--recovery);
+  box-shadow: none;
+}
+
+#takeaway h2 {
+  max-width: 31ch;
+  color: var(--ink);
+}
+
+/* ============================================
+   DIVIDERS BETWEEN DISTINCT ANALYTICAL QUESTIONS
+   ============================================ */
+
+.story-divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 38px 0 30px;
+}
+
+/* The divider already provides separation. */
+main section .story-divider + h3 {
+  margin-top: 0;
+}
+
+/* Keep the mosaic close to its divider. */
+#investment .story-divider + .story-row--mosaic {
+  margin-top: 0;
+}
+
+@media (max-width: 700px) {
+  .story-divider {
+    margin: 28px 0 24px;
+  }
 }

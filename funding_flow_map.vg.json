@@ -1,6 +1,7 @@
+
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Schematic Commonwealth-to-state allocation links for single-state entries.",
+  "description": "Schematic Commonwealth-to-state allocation links for single-state projects. Lines originate at the Commonwealth reference point and end at state or territory destinations.",
   "width": 620,
   "height": 440,
   "background": "transparent",
@@ -44,10 +45,7 @@
           "title": "Listed funding (AUD)",
           "scale": {
             "domainMin": 0,
-            "range": [
-              0,
-              11
-            ]
+            "range": [0, 11]
           },
           "legend": {
             "orient": "bottom-left",
@@ -77,7 +75,83 @@
           {
             "field": "properties.project_count",
             "type": "quantitative",
-            "title": "Entries"
+            "title": "Project entries"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Blue markers identify the state or territory end of each schematic funding flow.",
+      "data": {
+        "url": "data/state_funding_flows.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.geometry.type == 'LineString' && length(datum.geometry.coordinates) >= 2"
+        },
+        {
+          "calculate": "datum.geometry.coordinates[0]",
+          "as": "first_point"
+        },
+        {
+          "calculate": "datum.geometry.coordinates[length(datum.geometry.coordinates) - 1]",
+          "as": "last_point"
+        },
+        {
+          "calculate": "pow(datum.first_point[0] - 149.1, 2) + pow(datum.first_point[1] + 35.3, 2)",
+          "as": "first_distance"
+        },
+        {
+          "calculate": "pow(datum.last_point[0] - 149.1, 2) + pow(datum.last_point[1] + 35.3, 2)",
+          "as": "last_distance"
+        },
+        {
+          "calculate": "datum.first_distance > datum.last_distance ? datum.first_point[0] : datum.last_point[0]",
+          "as": "destination_longitude"
+        },
+        {
+          "calculate": "datum.first_distance > datum.last_distance ? datum.first_point[1] : datum.last_point[1]",
+          "as": "destination_latitude"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 75,
+        "filled": true,
+        "fill": "#245d88",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5,
+        "opacity": 0.95
+      },
+      "encoding": {
+        "longitude": {
+          "field": "destination_longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "destination_latitude",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "properties.state_name",
+            "title": "Destination"
+          },
+          {
+            "field": "properties.funding_aud",
+            "type": "quantitative",
+            "title": "Listed funding (AUD)",
+            "format": ",.0f"
+          },
+          {
+            "field": "properties.project_count",
+            "type": "quantitative",
+            "title": "Project entries",
+            "format": "d"
           }
         ]
       }
@@ -88,7 +162,7 @@
           {
             "longitude": 149.1,
             "latitude": -35.3,
-            "label": "Australian Capital Territory / Commonwealth reference"
+            "label": "Commonwealth allocation reference point (ACT)"
           }
         ]
       },
@@ -96,7 +170,7 @@
         "type": "circle",
         "size": 130,
         "fill": "#c35f3e",
-        "stroke": "white",
+        "stroke": "#ffffff",
         "strokeWidth": 1
       },
       "encoding": {
@@ -111,9 +185,48 @@
         "tooltip": [
           {
             "field": "label",
-            "type": "nominal"
+            "type": "nominal",
+            "title": "Origin"
           }
         ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "longitude": 149.1,
+            "latitude": -35.3,
+            "label": "Commonwealth|origin"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "align": "left",
+        "baseline": "top",
+        "dx": 16,
+        "dy": 16,
+        "lineBreak": "|",
+        "lineHeight": 16,
+        "color": "#17362f",
+        "clip": false
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
       }
     },
     {

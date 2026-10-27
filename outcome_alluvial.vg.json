@@ -1,10 +1,17 @@
+
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Year Five outcomes regrouped by later priority-list status.",
-  "width": 240,
-  "height": 210,
+  "description": "Year Five conservation outcomes and their later 2022–2032 priority-list status. Band thickness represents the number of entries.",
+  "width": 320,
+  "height": 250,
   "background": "transparent",
-  "padding": 5,
+  "padding": {
+    "left": 165,
+    "right": 165,
+    "top": 18,
+    "bottom": 25
+  },
+
   "data": {
     "url": "data/outcome_alluvial.csv",
     "format": {
@@ -17,49 +24,59 @@
       }
     }
   },
+
   "layer": [
     {
       "mark": {
         "type": "area",
-        "opacity": 1,
+        "opacity": 0.95,
         "interpolate": "linear",
-        "stroke": "#f7f7f1",
+        "stroke": "#ffffff",
         "strokeWidth": 1
       },
+
       "encoding": {
         "x": {
           "field": "stage",
           "type": "quantitative",
           "title": null,
           "scale": {
-            "domain": [0, 1]
+            "domain": [0, 1],
+            "nice": false
           },
           "axis": {
             "values": [0, 1],
             "labelExpr": "datum.value == 0 ? 'Year Five outcome' : '2022–2032 list'",
             "labelAngle": 0,
-            "labelPadding": 12,
+            "labelPadding": 16,
+            "labelFontSize": 12,
+            "labelFontWeight": "bold",
             "ticks": false,
             "grid": false,
             "domain": false
           }
         },
+
         "y": {
           "field": "low",
           "type": "quantitative",
           "stack": null,
           "scale": {
-            "domain": [0, 71]
+            "domain": [0, 71],
+            "nice": false
           },
           "axis": null
         },
+
         "y2": {
           "field": "high"
         },
+
         "detail": {
           "field": "flow",
           "type": "nominal"
         },
+
         "color": {
           "field": "outcome",
           "type": "nominal",
@@ -77,24 +94,28 @@
           },
           "legend": null
         },
+
         "tooltip": [
           {
             "field": "outcome",
-            "title": "Year Five outcome"
+            "type": "nominal",
+            "title": "Outcome by 2020"
           },
           {
             "field": "list_status",
-            "title": "2022–2032 list status"
+            "type": "nominal",
+            "title": "Later priority-list status"
           },
           {
             "field": "entries",
             "type": "quantitative",
-            "title": "Entries",
+            "title": "Number of priorities",
             "format": "d"
           }
         ]
       }
     },
+
     {
       "data": {
         "values": [
@@ -112,38 +133,46 @@
           }
         ]
       },
+
       "mark": {
         "type": "text",
         "align": "right",
         "baseline": "middle",
-        "dx": -10,
-        "fontSize": 12,
-        "fontWeight": "bold",
+        "dx": -15,
+        "fontSize": 13,
+        "fontWeight": 600,
         "lineBreak": "|",
-        "lineHeight": 15,
+        "lineHeight": 17,
         "color": "#17362f",
         "clip": false
       },
+
       "encoding": {
         "x": {
           "datum": 0,
           "type": "quantitative",
           "scale": {
-            "domain": [0, 1]
+            "domain": [0, 1],
+            "nice": false
           }
         },
+
         "y": {
           "field": "center",
           "type": "quantitative",
           "scale": {
-            "domain": [0, 71]
+            "domain": [0, 71],
+            "nice": false
           }
         },
+
         "text": {
-          "field": "label"
+          "field": "label",
+          "type": "nominal"
         }
       }
     },
+
     {
       "data": {
         "values": [
@@ -153,42 +182,50 @@
           },
           {
             "center": 49,
-            "label": "44 absent from|newer list"
+            "label": "44 not on|newer list"
           }
         ]
       },
+
       "mark": {
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 20,
-        "fontSize": 12,
-        "fontWeight": "bold",
+        "dx": 15,
+        "fontSize": 13,
+        "fontWeight": 600,
         "lineBreak": "|",
-        "lineHeight": 15,
+        "lineHeight": 17,
         "color": "#17362f",
         "clip": false
       },
+
       "encoding": {
         "x": {
           "datum": 1,
           "type": "quantitative",
           "scale": {
-            "domain": [0, 1]
+            "domain": [0, 1],
+            "nice": false
           }
         },
+
         "y": {
           "field": "center",
           "type": "quantitative",
           "scale": {
-            "domain": [0, 71]
+            "domain": [0, 71],
+            "nice": false
           }
         },
+
         "text": {
-          "field": "label"
+          "field": "label",
+          "type": "nominal"
         }
       }
     },
+
     {
       "transform": [
         {
@@ -199,125 +236,80 @@
           "as": "center"
         }
       ],
+
       "mark": {
         "type": "text",
         "align": "right",
         "baseline": "middle",
-        "dx": -6,
+        "dx": -8,
         "fontSize": 11,
-        "fontWeight": "bold"
+        "fontWeight": "bold",
+        "clip": true
       },
+
       "encoding": {
         "x": {
           "field": "stage",
           "type": "quantitative",
           "scale": {
-            "domain": [0, 1]
+            "domain": [0, 1],
+            "nice": false
           }
         },
+
         "y": {
           "field": "center",
           "type": "quantitative",
           "scale": {
-            "domain": [0, 71]
+            "domain": [0, 71],
+            "nice": false
           }
         },
+
         "text": {
           "field": "entries",
           "type": "quantitative",
           "format": "d"
         },
+
         "color": {
           "condition": {
             "test": "datum.outcome == 'No significant change'",
             "value": "#17362f"
           },
           "value": "#ffffff"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
+        },
+
+        "tooltip": [
           {
-            "low": 0.5,
-            "high": 26.5
+            "field": "outcome",
+            "title": "Outcome by 2020"
           },
           {
-            "low": 27.5,
-            "high": 70.5
+            "field": "list_status",
+            "title": "Later priority-list status"
+          },
+          {
+            "field": "entries",
+            "type": "quantitative",
+            "title": "Number of priorities",
+            "format": "d"
           }
         ]
-      },
-      "mark": {
-        "type": "rule",
-        "color": "#52635a",
-        "strokeWidth": 1,
-        "clip": false
-      },
-      "encoding": {
-        "x": {
-          "value": 248
-        },
-        "y": {
-          "field": "low",
-          "type": "quantitative",
-          "scale": {
-            "domain": [0, 71]
-          }
-        },
-        "y2": {
-          "field": "high"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "position": 0.5
-          },
-          {
-            "position": 26.5
-          },
-          {
-            "position": 27.5
-          },
-          {
-            "position": 70.5
-          }
-        ]
-      },
-      "mark": {
-        "type": "rule",
-        "color": "#52635a",
-        "strokeWidth": 1,
-        "clip": false
-      },
-      "encoding": {
-        "x": {
-          "value": 243
-        },
-        "x2": {
-          "value": 248
-        },
-        "y": {
-          "field": "position",
-          "type": "quantitative",
-          "scale": {
-            "domain": [0, 71]
-          }
-        }
       }
     }
   ],
+
   "config": {
     "font": "Source Sans 3",
+
     "axis": {
       "labelFont": "Source Sans 3",
       "labelFontSize": 12,
-      "labelColor": "#52635a"
+      "labelColor": "#52635a",
+      "titleColor": "#17362f"
     },
+
     "view": {
       "stroke": null
     }

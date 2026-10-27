@@ -1,28 +1,133 @@
+
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Indicative EPBC threatened-species occurrences by taxonomic group and jurisdiction.",
-  "width": 560,
-  "height": 285,
+  "description": "Nationally listed threatened-species counts by species group and Australian state or territory. Darker purple represents more listings, not necessarily higher extinction risk.",
+  "width": 600,
+  "height": 315,
   "background": "transparent",
   "data": {
     "url": "data/threatened_group_by_state.csv"
   },
+  "transform": [
+    {
+      "calculate": "{'WA':'Western Australia','NT':'Northern Territory','SA':'South Australia','QLD':'Queensland','NSW':'New South Wales','VIC':'Victoria','TAS':'Tasmania','ACT':'Australian Capital Territory'}[datum.state_code]",
+      "as": "state_name"
+    }
+  ],
+  "mark": {
+    "type": "rect",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "state_code",
+      "type": "nominal",
+      "sort": [
+        "WA",
+        "NT",
+        "SA",
+        "QLD",
+        "NSW",
+        "VIC",
+        "TAS",
+        "ACT"
+      ],
+      "title": "State or territory",
+      "axis": {
+        "labelAngle": 0,
+        "labelAlign": "center",
+        "labelFontSize": 11,
+        "labelLineHeight": 14,
+        "labelPadding": 10,
+        "labelLimit": 95,
+        "titlePadding": 18,
+        "ticks": false,
+        "domain": false,
+        "labelExpr": "datum.label == 'WA' ? ['Western', 'Australia'] : datum.label == 'NT' ? ['Northern', 'Territory'] : datum.label == 'SA' ? ['South', 'Australia'] : datum.label == 'QLD' ? 'Queensland' : datum.label == 'NSW' ? ['New South', 'Wales'] : datum.label == 'VIC' ? 'Victoria' : datum.label == 'TAS' ? 'Tasmania' : datum.label == 'ACT' ? ['Australian', 'Capital', 'Territory'] : datum.label"
+      }
+    },
+    "y": {
+      "field": "taxon_group",
+      "type": "nominal",
+      "sort": [
+        "Plants",
+        "Birds",
+        "Mammals",
+        "Reptiles",
+        "Amphibians",
+        "Fish",
+        "Invertebrates"
+      ],
+      "title": null,
+      "axis": {
+        "labelFontSize": 13,
+        "labelPadding": 10,
+        "labelLimit": 150,
+        "ticks": false,
+        "domain": false
+      }
+    },
+    "color": {
+      "field": "listed_species",
+      "type": "quantitative",
+      "title": "Threatened-species listings",
+      "scale": {
+        "type": "sqrt",
+        "scheme": "purples",
+        "domainMin": 0
+      },
+      "legend": {
+        "title": "Number listed",
+        "orient": "right",
+        "direction": "vertical",
+        "gradientLength": 180,
+        "gradientThickness": 13,
+        "titleFontSize": 12,
+        "labelFontSize": 12,
+        "format": ",.0f"
+      }
+    },
+    "stroke": {
+      "condition": {
+        "test": "datum.state_code == 'NSW' && datum.taxon_group == 'Plants'",
+        "value": "#17362f"
+      },
+      "value": "#ffffff"
+    },
+    "tooltip": [
+      {
+        "field": "state_name",
+        "type": "nominal",
+        "title": "State or territory"
+      },
+      {
+        "field": "taxon_group",
+        "type": "nominal",
+        "title": "Species group"
+      },
+      {
+        "field": "listed_species",
+        "type": "quantitative",
+        "title": "Number of listed species",
+        "format": ",.0f"
+      }
+    ]
+  },
   "config": {
     "font": "Source Sans 3",
     "axis": {
-      "labelFontSize": 14,
-      "titleFontSize": 15,
       "labelFont": "Source Sans 3",
       "titleFont": "Source Sans 3",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
       "labelColor": "#52635a",
       "titleColor": "#17362f",
-      "gridColor": "#e2e8e4",
-      "gridWidth": 0.7,
+      "grid": false,
       "domainColor": "#bacbc0",
       "tickColor": "#bacbc0"
     },
     "axisY": {
-      "minExtent": 120
+      "minExtent": 115
     },
     "view": {
       "stroke": null
@@ -33,124 +138,7 @@
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#17362f",
-      "titleColor": "#17362f",
-      "orient": "bottom",
-      "direction": "vertical"
+      "titleColor": "#17362f"
     }
-  },
-  "layer": [
-    {
-      "mark": {
-        "type": "rect",
-        "stroke": "#f5f7f3",
-        "strokeWidth": 2
-      },
-      "encoding": {
-        "x": {
-          "field": "state_code",
-          "type": "nominal",
-          "sort": [
-            "WA",
-            "NT",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS",
-            "ACT"
-          ],
-          "title": "State or territory",
-          "axis": {
-            "labelAngle": -90,
-            "labelLimit": 250,
-            "labelExpr": "datum.label == 'WA' ? 'Western Australia' : datum.label == 'NT' ? 'Northern Territory' : datum.label == 'SA' ? 'South Australia' : datum.label == 'QLD' ? 'Queensland' : datum.label == 'NSW' ? 'New South Wales' : datum.label == 'VIC' ? 'Victoria' : datum.label == 'TAS' ? 'Tasmania' : datum.label == 'ACT' ? 'Australian Capital Territory' : datum.label"
-          }
-        },
-        "y": {
-          "field": "taxon_group",
-          "type": "nominal",
-          "sort": [
-            "Plants",
-            "Birds",
-            "Mammals",
-            "Reptiles",
-            "Amphibians",
-            "Fish",
-            "Invertebrates"
-          ],
-          "title": "Species group"
-        },
-        "color": {
-          "field": "listed_species",
-          "type": "quantitative",
-          "title": "Listed species",
-          "scale": {
-            "scheme": "purples",
-            "domainMin": 0
-          },
-          "legend": {
-            "orient": "right",
-            "direction": "vertical",
-            "gradientLength": 135,
-            "gradientThickness": 10,
-            "title": "Entries"
-          }
-        },
-        "tooltip": [
-          {
-            "field": "state_code",
-            "title": "State or territory"
-          },
-          {
-            "field": "taxon_group",
-            "title": "Group"
-          },
-          {
-            "field": "listed_species",
-            "type": "quantitative",
-            "title": "Listed species",
-            "format": ".0f"
-          }
-        ]
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.state_code == 'NSW' && datum.taxon_group == 'Plants'"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "fontSize": 13,
-        "fontWeight": "bold",
-        "color": "#ffffff"
-      },
-      "encoding": {
-        "x": {
-          "field": "state_code",
-          "type": "nominal",
-          "sort": [
-            "WA",
-            "NT",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS",
-            "ACT"
-          ]
-        },
-        "y": {
-          "field": "taxon_group",
-          "type": "nominal"
-        },
-        "text": {
-          "field": "listed_species",
-          "type": "quantitative",
-          "format": ".0f"
-        }
-      }
-    }
-  ]
+  }
 }

@@ -4,7 +4,7 @@
   "width": 620,
   "height": 335,
   "background": "transparent",
-  "padding": {"top": 58, "right": 5, "bottom": 5, "left": 5},
+  "padding": {"top": 7, "right": 5, "bottom": 5, "left": 5},
   "data": {
     "url": "data/state_stream_grouped_mosaic.csv",
     "format": {
