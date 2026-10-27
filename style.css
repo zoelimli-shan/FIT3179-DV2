@@ -1,8 +1,4 @@
-
-/* ============================================
-   AUSTRALIA'S CONSERVATION CHOICES
-   UPDATED STYLESHEET — MOSAIC LEFT, MAP LAYOUT
-   ============================================ */
+/* Australia's Conservation Choices */
 
 :root {
   --paper: #f7f7f1;
@@ -10,9 +6,7 @@
   --muted: #52635a;
   --line: #d8e2d9;
   --funding: #245d88;
-  --listing: #66509a;
   --recovery: #176b50;
-  --accent: #9a5c2f;
   --reading-width: 42ch;
 }
 
@@ -70,12 +64,6 @@ h2 {
   line-height: 1.17;
 }
 
-h1 {
-  font-size: clamp(30px, 2.8vw, 38px);
-  font-weight: 700;
-  margin: 0 0 14px;
-}
-
 h2 {
   font-size: clamp(25px, 2.7vw, 31px);
   font-weight: 600;
@@ -83,7 +71,8 @@ h2 {
   max-width: 31ch;
 }
 
-/* Stronger chapter headings, without changing the hero or footer */
+/* Chapter headings */
+
 main section h2 {
   font-size: clamp(32px, 3.2vw, 36px);
   font-weight: 700;
@@ -102,35 +91,6 @@ main section h3 {
 
 main section h2 + h3 {
   margin-top: 1.4rem;
-}
-
-/* HERO */
-
-.hero {
-  border-top: 5px solid var(--recovery);
-  padding-top: 24px;
-}
-
-.hero-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 32px;
-  align-items: start;
-  margin: 26px 0 42px;
-}
-
-.hero-layout > * {
-  min-width: 0;
-}
-
-.hero-layout .lead {
-  margin: 0;
-}
-
-.lead {
-  font-size: 20px;
-  line-height: 1.4;
-  max-width: var(--reading-width);
 }
 
 /* KEY NUMBERS */
@@ -180,7 +140,7 @@ main section {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.55fr);
   gap: clamp(1.25rem, 3vw, 2.25rem);
-  align-items: start;
+  align-items: center;
   margin: 20px 0 26px;
 }
 
@@ -245,22 +205,6 @@ figure.viz > div[id] {
   margin-top: 0;
 }
 
-figure.viz > p,
-figure.viz > p.chart-finding {
-  width: 100%;
-  max-width: var(--reading-width);
-  margin: 16px 0 0;
-  font-size: 16px;
-  line-height: 1.5;
-  text-align: left;
-}
-
-figure.viz > p small {
-  display: inline;
-  font-size: 15px;
-  line-height: 1.5;
-}
-
 .vega-embed {
   max-width: 100%;
 }
@@ -271,61 +215,13 @@ figure.viz > p small {
   height: auto;
 }
 
-/* SPECIAL CHARTS */
+/* CENTRED CHART BELOW THE FIRST CHAPTER'S TEXT */
 
 #challenge > figure.viz {
   max-width: 620px;
 }
 
-.viz--compact {
-  max-width: 490px;
-}
-
-.viz--waffle {
-  max-width: 730px;
-}
-
-#priorities > .insight {
-  width: 100%;
-  max-width: var(--reading-width);
-  margin: 14px auto 0;
-  font-size: 16px;
-  line-height: 1.55;
-  font-weight: 400;
-}
-
-/* FUNDING EXPLANATIONS */
-
-#investment > p {
-  max-width: var(--reading-width);
-}
-
-.story-context {
-  max-width: var(--reading-width);
-  margin: 1.5rem 0 2rem;
-}
-
-.story-context p {
-  max-width: var(--reading-width);
-  margin: 0 0 0.9rem;
-  line-height: 1.55;
-}
-
-.story-context p:last-child {
-  margin-bottom: 0;
-}
-
-/* ============================================
-   FUNDING MOSAIC — LEFT-HAND LAYOUT
-   ============================================ */
-
-/*
-   Mosaic occupies the wider left column.
-   Explanation occupies the right column.
-
-   HTML must use:
-   class="story-row story-row--mosaic"
-*/
+/* FUNDING MOSAIC — CHART LEFT, TEXT RIGHT */
 
 #investment .story-row--mosaic {
   display: grid;
@@ -333,30 +229,8 @@ figure.viz > p small {
     minmax(0, 1.8fr)
     minmax(0, 0.8fr);
   gap: clamp(1.25rem, 2.5vw, 2rem);
-  align-items: start;
+  align-items: center;
   margin: 24px 0 36px;
-}
-
-#investment .story-row--mosaic > * {
-  min-width: 0;
-}
-
-#investment .story-row--mosaic .story-copy p {
-  max-width: var(--reading-width);
-  margin: 0 0 1rem;
-  line-height: 1.55;
-}
-
-#investment .story-row--mosaic .story-copy p:last-child {
-  margin-bottom: 0;
-}
-
-#investment .story-row--mosaic figure.viz--mosaic {
-  width: 100%;
-  max-width: none;
-  min-width: 0;
-  margin: 0;
-  justify-self: stretch;
 }
 
 #investment .story-row--mosaic figure.viz--mosaic figcaption {
@@ -366,38 +240,18 @@ figure.viz > p small {
   text-align: left;
 }
 
-#investment .story-row--mosaic figure.viz--mosaic figcaption span {
-  max-width: var(--reading-width);
-}
-
-#investment .story-row--mosaic #funding_mosaic {
-  width: 100%;
-  max-width: 100%;
-  margin-top: 0;
-}
-
 /* GEOGRAPHIC COMPARISON — THREE CONSISTENT MAP ROWS */
 
 #investment .story-row--map {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.55fr);
   gap: clamp(1.25rem, 3vw, 2.25rem);
-  align-items: start;
+  align-items: center;
   margin: 22px 0 38px;
 }
 
-#investment .story-row--map .story-copy p {
-  max-width: var(--reading-width);
-}
-
-#investment .story-row--map figure.viz {
-  width: 100%;
-  min-width: 0;
-  max-width: none;
-  margin: 0;
-}
-
 /* A quiet visual break separates each geographic question. */
+
 #investment .story-row--map + .story-row--map {
   padding-top: 24px;
   border-top: 1px solid var(--line);
@@ -407,49 +261,6 @@ figure.viz > p small {
 
 .story-row--tile {
   margin: 1rem 0 1.75rem;
-}
-
-.story-row--tile figure.viz {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-}
-
-/* WIDER COMPLEX CHARTS */
-
-figure.viz--trends,
-figure.viz--heatmap,
-figure.viz--flow {
-  width: 100%;
-  max-width: 960px;
-  margin-inline: auto;
-}
-
-figure.viz--trends figcaption,
-figure.viz--heatmap figcaption,
-figure.viz--flow figcaption,
-figure.viz--alluvial figcaption {
-  max-width: 100%;
-  margin-left: 0;
-}
-
-#challenge > figure.viz--trends {
-  max-width: 960px;
-}
-
-.story-row figure.viz--alluvial {
-  width: 100%;
-  max-width: none;
-}
-
-#tsx_group_trends,
-#state_group_heatmap {
-  max-width: 100%;
-}
-
-.section-intro {
-  max-width: var(--reading-width);
-  margin: 0 0 22px;
 }
 
 /* CONCLUSION */
@@ -531,17 +342,13 @@ footer .footer-heading {
   overflow-wrap: anywhere;
 }
 
-/* ============================================
-   RESPONSIVE LAYOUT
-   ============================================ */
-
-/* Make the mosaic full-width if the right
-   column becomes too narrow */
+/* RESPONSIVE LAYOUT */
 
 @media (max-width: 1000px) {
   #investment .story-row--mosaic {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
+    align-items: start;
   }
 
   #investment .story-row--mosaic figure.viz--mosaic {
@@ -549,14 +356,11 @@ footer .footer-heading {
     max-width: 980px;
     margin: 0 auto;
   }
-}
 
-/* Stack each text-and-map row on narrower screens. */
-
-@media (max-width: 1000px) {
   #investment .story-row--map {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
+    align-items: start;
   }
 
   #investment .story-row--map figure.viz {
@@ -566,47 +370,22 @@ footer .footer-heading {
   }
 }
 
-/* Tablet */
-
 @media (max-width: 800px) {
   .story-row {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
+    align-items: start;
   }
 
   .story-row figure.viz {
     margin: 0 auto;
   }
-
-  .hero-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-layout .key-numbers {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  figure.viz--trends,
-  figure.viz--heatmap,
-  figure.viz--flow {
-    max-width: 100%;
-  }
 }
-
-/* Mobile */
 
 @media (max-width: 700px) {
   body {
     padding: 22px 14px 48px;
     font-size: 17px;
-  }
-
-  .lead {
-    font-size: 18px;
-  }
-
-  .hero-layout .key-numbers {
-    grid-template-columns: 1fr;
   }
 
   .key-numbers div {
@@ -641,30 +420,7 @@ footer .footer-heading {
   }
 }
 
-/* ============================================
-   REDUCE FUNDING MOSAIC TITLE-CHART SPACING
-   ============================================ */
-
-/* Reduce space below the chart description */
-#investment .viz--mosaic figcaption {
-  margin-bottom: 2px;
-}
-
-/* Remove extra margin above the chart container */
-#investment .viz--mosaic > #funding_mosaic {
-  margin-top: 0;
-}
-
-/* Remove unnecessary spacing around Vega output */
-#funding_mosaic .vega-embed {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-/* ============================================
-   DISTINCT UNNUMBERED CONCLUSION
-   Only #takeaway is affected.
-   ============================================ */
+/* CONCLUSION CONTAINER */
 
 #takeaway {
   background: #e8eee7;
@@ -673,14 +429,7 @@ footer .footer-heading {
   box-shadow: none;
 }
 
-#takeaway h2 {
-  max-width: 31ch;
-  color: var(--ink);
-}
-
-/* ============================================
-   DIVIDERS BETWEEN DISTINCT ANALYTICAL QUESTIONS
-   ============================================ */
+/* DIVIDERS BETWEEN DISTINCT QUESTIONS */
 
 .story-divider {
   border: 0;
@@ -688,12 +437,10 @@ footer .footer-heading {
   margin: 38px 0 30px;
 }
 
-/* The divider already provides separation. */
 main section .story-divider + h3 {
   margin-top: 0;
 }
 
-/* Keep the mosaic close to its divider. */
 #investment .story-divider + .story-row--mosaic {
   margin-top: 0;
 }
@@ -702,4 +449,112 @@ main section .story-divider + h3 {
   .story-divider {
     margin: 28px 0 24px;
   }
+}
+
+/* INTRODUCTION SECTION */
+
+#introduction {
+  margin-bottom: 48px;
+}
+
+#introduction h2 {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: clamp(30px, 3vw, 36px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 24px;
+}
+
+.intro-content {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.intro-copy {
+  min-width: 0;
+  font-family: "Source Sans 3", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.intro-copy p {
+  margin: 0 0 18px;
+}
+
+.intro-copy p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .intro-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+#introduction .key-numbers {
+  width: 100%;
+  max-width: none;
+  justify-self: center;
+  box-sizing: border-box;
+}
+
+/* HERO */
+
+.hero {
+  padding: 46px 0 44px;
+}
+
+.hero h1 {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  max-width: none;
+  margin: 0 0 28px;
+}
+
+.hero .hero-subtitle {
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-size: clamp(19px, 1.8vw, 22px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 65ch;
+  border-left: 3px solid var(--recovery);
+  padding-left: 18px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding: 28px 0 30px;
+  }
+}
+
+@media (max-width: 800px) {
+  .hero h1 {
+    font-size: clamp(34px, 6vw, 44px);
+  }
+
+  .hero .hero-subtitle {
+    font-size: 18px;
+    padding-left: 14px;
+  }
+}
+
+.hero-emoji {
+  font-size: 26px;
+  line-height: 1;
+  flex-shrink: 0;
 }
