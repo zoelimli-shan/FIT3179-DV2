@@ -198,6 +198,12 @@ figure.viz figcaption span {
   margin-top: 3px;
 }
 
+/* Align the alluvial title with the diagram's left-side labels. */
+
+#evidence .story-row figure.viz--alluvial figcaption {
+  padding-inline-start: min(165px, 25.4%);
+}
+
 figure.viz > div[id] {
   width: 100%;
   min-width: 0;
