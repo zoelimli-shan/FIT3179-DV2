@@ -564,3 +564,14 @@ main section .story-divider + h3 {
   line-height: 1;
   flex-shrink: 0;
 }
+
+
+#investment .story-row--mosaic .viz--mosaic > #funding_mosaic {
+  margin-top: -100px;
+}
+
+@media (max-width: 800px) {
+  #investment .story-row--mosaic .viz--mosaic > #funding_mosaic {
+    margin-top: -50px;
+  }
+}
