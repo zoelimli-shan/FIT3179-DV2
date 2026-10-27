@@ -4,7 +4,7 @@
   "width": 620,
   "height": 335,
   "background": "transparent",
-  "padding": {"top": 7, "right": 5, "bottom": 5, "left": 5},
+  "padding": {"top": 100, "right": 5, "bottom": 5, "left": 5},
   "data": {
     "url": "data/state_stream_grouped_mosaic.csv",
     "format": {
@@ -18,6 +18,12 @@
       }
     }
   },
+  "transform": [
+    {
+      "calculate": "{'QLD':'Queensland','NT':'Northern Territory','WA':'Western Australia','VIC':'Victoria','TAS':'Tasmania','NSW':'New South Wales','SA':'South Australia','ACT':'Australian Capital Territory'}[datum.state_code]",
+      "as": "state_name"
+    }
+  ],
   "config": {
     "font": "Source Sans 3",
     "axis": {
@@ -59,10 +65,7 @@
           "type": "quantitative",
           "title": "Share of eligible listed funding",
           "scale": {
-            "domain": [
-              0,
-              1
-            ]
+            "domain": [0, 1]
           },
           "axis": {
             "format": ".0%"
@@ -76,10 +79,7 @@
           "type": "quantitative",
           "title": "Stream share within state",
           "scale": {
-            "domain": [
-              0,
-              1
-            ]
+            "domain": [0, 1]
           },
           "axis": {
             "format": ".0%"
@@ -116,8 +116,8 @@
         },
         "tooltip": [
           {
-            "field": "state_code",
-            "title": "State"
+            "field": "state_name",
+            "title": "State or territory"
           },
           {
             "field": "stream_group",
@@ -146,13 +146,13 @@
           "as": "ycenter"
         },
         {
-          "calculate": "'QLD AUD 26.59m'",
+          "calculate": "'Queensland: AUD 26.59 million'",
           "as": "label"
         }
       ],
       "mark": {
         "type": "text",
-        "fontSize": 12,
+        "fontSize": 11,
         "fontWeight": "bold",
         "color": "#101d1b"
       },
@@ -161,20 +161,14 @@
           "field": "xcenter",
           "type": "quantitative",
           "scale": {
-            "domain": [
-              0,
-              1
-            ]
+            "domain": [0, 1]
           }
         },
         "y": {
           "field": "ycenter",
           "type": "quantitative",
           "scale": {
-            "domain": [
-              0,
-              1
-            ]
+            "domain": [0, 1]
           }
         },
         "text": {
@@ -185,8 +179,13 @@
     },
     {
       "transform": [
-        {"filter": "datum.stream_group == 'Priority places' && datum.state_code != 'SA' && datum.state_code != 'ACT'"},
-        {"calculate": "(datum.x0 + datum.x1) / 2", "as": "xcenter"}
+        {
+          "filter": "datum.stream_group == 'Priority places' && (datum.state_code == 'QLD' || datum.state_code == 'NT' || datum.state_code == 'VIC' || datum.state_code == 'NSW')"
+        },
+        {
+          "calculate": "(datum.x0 + datum.x1) / 2",
+          "as": "xcenter"
+        }
       ],
       "mark": {
         "type": "text",
@@ -196,16 +195,52 @@
         "color": "#17362f"
       },
       "encoding": {
-        "x": {"field": "xcenter", "type": "quantitative", "scale": {"domain": [0, 1]}},
+        "x": {
+          "field": "xcenter",
+          "type": "quantitative",
+          "scale": {"domain": [0, 1]}
+        },
         "y": {"value": -8},
-        "text": {"field": "state_code"}
+        "text": {"field": "state_name"}
       }
     },
     {
       "transform": [
-        {"filter": "datum.stream_group == 'Priority places' && datum.state_code == 'SA'"},
-        {"calculate": "(datum.x0 + datum.x1) / 2", "as": "xcenter"},
-        {"calculate": "'South Australia (SA)'", "as": "state_label"}
+        {
+          "filter": "datum.stream_group == 'Priority places' && (datum.state_code == 'WA' || datum.state_code == 'TAS')"
+        },
+        {
+          "calculate": "(datum.x0 + datum.x1) / 2",
+          "as": "xcenter"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "baseline": "bottom",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#17362f",
+        "clip": false
+      },
+      "encoding": {
+        "x": {
+          "field": "xcenter",
+          "type": "quantitative",
+          "scale": {"domain": [0, 1]}
+        },
+        "y": {"value": -29},
+        "text": {"field": "state_name"}
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.stream_group == 'Priority places' && datum.state_code == 'SA'"
+        },
+        {
+          "calculate": "(datum.x0 + datum.x1) / 2",
+          "as": "xcenter"
+        }
       ],
       "mark": {
         "type": "text",
@@ -215,16 +250,24 @@
         "color": "#17362f"
       },
       "encoding": {
-        "x": {"field": "xcenter", "type": "quantitative", "scale": {"domain": [0, 1]}},
-        "y": {"value": -26},
-        "text": {"field": "state_label"}
+        "x": {
+          "field": "xcenter",
+          "type": "quantitative",
+          "scale": {"domain": [0, 1]}
+        },
+        "y": {"value": -52},
+        "text": {"field": "state_name"}
       }
     },
     {
       "transform": [
-        {"filter": "datum.state_code == 'ACT' && datum.stream_group == 'Priority species'"},
-        {"calculate": "(datum.x0 + datum.x1) / 2", "as": "xcenter"},
-        {"calculate": "'Australian Capital Territory (ACT)'", "as": "state_label"}
+        {
+          "filter": "datum.state_code == 'ACT' && datum.stream_group == 'Priority species'"
+        },
+        {
+          "calculate": "(datum.x0 + datum.x1) / 2",
+          "as": "xcenter"
+        }
       ],
       "mark": {
         "type": "text",
@@ -234,15 +277,24 @@
         "color": "#17362f"
       },
       "encoding": {
-        "x": {"field": "xcenter", "type": "quantitative", "scale": {"domain": [0, 1]}},
-        "y": {"value": -45},
-        "text": {"field": "state_label"}
+        "x": {
+          "field": "xcenter",
+          "type": "quantitative",
+          "scale": {"domain": [0, 1]}
+        },
+        "y": {"value": -75},
+        "text": {"field": "state_name"}
       }
     },
     {
       "transform": [
-        {"filter": "datum.state_code == 'SA' && datum.stream_group == 'Priority places'"},
-        {"calculate": "(datum.x0 + datum.x1) / 2", "as": "xcenter"}
+        {
+          "filter": "datum.stream_group == 'Priority places' && (datum.state_code == 'WA' || datum.state_code == 'TAS')"
+        },
+        {
+          "calculate": "(datum.x0 + datum.x1) / 2",
+          "as": "xcenter"
+        }
       ],
       "mark": {
         "type": "rule",
@@ -251,15 +303,24 @@
         "clip": false
       },
       "encoding": {
-        "x": {"field": "xcenter", "type": "quantitative", "scale": {"domain": [0, 1]}},
-        "y": {"value": -22},
+        "x": {
+          "field": "xcenter",
+          "type": "quantitative",
+          "scale": {"domain": [0, 1]}
+        },
+        "y": {"value": -25},
         "y2": {"value": -2}
       }
     },
     {
       "transform": [
-        {"filter": "datum.state_code == 'ACT' && datum.stream_group == 'Priority species'"},
-        {"calculate": "(datum.x0 + datum.x1) / 2", "as": "xcenter"}
+        {
+          "filter": "datum.state_code == 'SA' && datum.stream_group == 'Priority places'"
+        },
+        {
+          "calculate": "(datum.x0 + datum.x1) / 2",
+          "as": "xcenter"
+        }
       ],
       "mark": {
         "type": "rule",
@@ -268,8 +329,38 @@
         "clip": false
       },
       "encoding": {
-        "x": {"field": "xcenter", "type": "quantitative", "scale": {"domain": [0, 1]}},
-        "y": {"value": -41},
+        "x": {
+          "field": "xcenter",
+          "type": "quantitative",
+          "scale": {"domain": [0, 1]}
+        },
+        "y": {"value": -48},
+        "y2": {"value": -2}
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.state_code == 'ACT' && datum.stream_group == 'Priority species'"
+        },
+        {
+          "calculate": "(datum.x0 + datum.x1) / 2",
+          "as": "xcenter"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#52635a",
+        "strokeWidth": 1,
+        "clip": false
+      },
+      "encoding": {
+        "x": {
+          "field": "xcenter",
+          "type": "quantitative",
+          "scale": {"domain": [0, 1]}
+        },
+        "y": {"value": -71},
         "y2": {"value": -2}
       }
     }

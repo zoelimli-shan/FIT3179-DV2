@@ -1,7 +1,6 @@
-
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Schematic Commonwealth-to-state allocation links for single-state projects. Lines originate at the Commonwealth reference point and end at state or territory destinations.",
+  "description": "Schematic project allocations from an Australian Government reference point in Canberra to states and territories.",
   "width": 620,
   "height": 440,
   "background": "transparent",
@@ -162,7 +161,7 @@
           {
             "longitude": 149.1,
             "latitude": -35.3,
-            "label": "Commonwealth allocation reference point (ACT)"
+            "label": "Australian Government reference point (Canberra, Australian Capital Territory)"
           }
         ]
       },
@@ -186,7 +185,7 @@
           {
             "field": "label",
             "type": "nominal",
-            "title": "Origin"
+            "title": "Reference point"
           }
         ]
       }
@@ -197,7 +196,7 @@
           {
             "longitude": 149.1,
             "latitude": -35.3,
-            "label": "Commonwealth|origin"
+            "label": "Australian Government|Canberra reference point"
           }
         ]
       },
